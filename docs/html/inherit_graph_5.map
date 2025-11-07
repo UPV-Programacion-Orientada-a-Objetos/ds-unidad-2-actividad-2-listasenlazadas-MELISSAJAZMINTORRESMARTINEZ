@@ -1,0 +1,7 @@
+<map id="Gráfico de jerarquía de clases" name="Gráfico de jerarquía de clases">
+<area shape="rect" id="Node000000" href="$classTramaBase.html" title=" " alt="" coords="5,31,100,56"/>
+<area shape="rect" id="Node000001" href="$classTramaLoad.html" title=" " alt="" coords="148,5,241,31"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="113,30,147,24,148,29,114,35"/>
+<area shape="rect" id="Node000002" href="$classTramaMap.html" title=" " alt="" coords="149,55,240,80"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="114,51,150,57,149,62,113,56"/>
+</map>

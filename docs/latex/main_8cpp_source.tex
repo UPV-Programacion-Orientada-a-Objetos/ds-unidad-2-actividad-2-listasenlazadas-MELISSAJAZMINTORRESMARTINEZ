@@ -1,0 +1,516 @@
+\doxysection{main.\+cpp}
+\hypertarget{main_8cpp_source}{}\label{main_8cpp_source}\mbox{\hyperlink{main_8cpp}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <cstdio>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00033}00033\ \textcolor{preprocessor}{\#include\ <cctype>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00034}00034\ \textcolor{preprocessor}{\#include\ <cerrno>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00036}00036\ \textcolor{preprocessor}{\#ifdef\ \_\_linux\_\_}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00037}00037\ \textcolor{preprocessor}{\#include\ <termios.h>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00038}00038\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00039}00039\ \textcolor{preprocessor}{\#include\ <fcntl.h>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00040}00040\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00042}00042\ \textcolor{keyword}{using\ }std::cout;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00043}00043\ \textcolor{keyword}{using\ }std::endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00045}00045\ \textcolor{comment}{/**************************************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00046}00046\ \textcolor{comment}{\ *\ Declaraciones\ adelantadas}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00047}00047\ \textcolor{comment}{\ **************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00048}00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classListaDeCarga}{ListaDeCarga}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00049}00049\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRotorDeMapeo}{RotorDeMapeo}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00051}00051\ \textcolor{comment}{/**************************************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00052}00052\ \textcolor{comment}{\ *\ @class\ TramaBase}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00053}00053\ \textcolor{comment}{\ *\ @brief\ Clase\ base\ abstracta\ para\ todas\ las\ tramas\ del\ protocolo\ PRT-\/7}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00054}00054\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00055}00055\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00056}00056\ \textcolor{comment}{\ *\ Define\ la\ interfaz\ común\ para\ las\ tramas\ LOAD\ y\ MAP.\ Utiliza\ polimorfismo}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00057}00057\ \textcolor{comment}{\ *\ para\ permitir\ el\ procesamiento\ uniforme\ de\ diferentes\ tipos\ de\ tramas.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00058}00058\ \textcolor{comment}{\ *\ El\ destructor\ virtual\ es\ crítico\ para\ la\ correcta\ liberación\ de\ memoria.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00059}00059\ \textcolor{comment}{\ **************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00060}\mbox{\hyperlink{classTramaBase}{00060}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTramaBase}{TramaBase}}\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00061}00061\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00069}\mbox{\hyperlink{classTramaBase_a7adf0eea6b0eb612f7eeabac637c50a9}{00069}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTramaBase_a7adf0eea6b0eb612f7eeabac637c50a9}{procesar}}(\mbox{\hyperlink{classListaDeCarga}{ListaDeCarga}}*\ carga,\ \mbox{\hyperlink{classRotorDeMapeo}{RotorDeMapeo}}*\ rotor)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00070}00070\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00075}\mbox{\hyperlink{classTramaBase_a18ebfa4d2bfccd937d095d31fbb0aa95}{00075}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classTramaBase_a18ebfa4d2bfccd937d095d31fbb0aa95}{\string~TramaBase}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00076}00076\ \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00078}00078\ \textcolor{comment}{/**************************************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00079}00079\ \textcolor{comment}{\ *\ Estructuras\ de\ Nodos}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00080}00080\ \textcolor{comment}{\ **************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00086}\mbox{\hyperlink{structNodoCarga}{00086}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structNodoCarga}{NodoCarga}}\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00087}\mbox{\hyperlink{structNodoCarga_ac82031ee44864bf90a942c1ecb32ffb1}{00087}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structNodoCarga_ac82031ee44864bf90a942c1ecb32ffb1}{dato}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00088}\mbox{\hyperlink{structNodoCarga_a7b43ae914fbe417a224bf1f293f23c1b}{00088}}\ \ \ \ \ \mbox{\hyperlink{structNodoCarga}{NodoCarga}}*\ \mbox{\hyperlink{structNodoCarga_a7b43ae914fbe417a224bf1f293f23c1b}{prev}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00089}\mbox{\hyperlink{structNodoCarga_aadd7fb984d921610b32ff385c6ee0988}{00089}}\ \ \ \ \ \mbox{\hyperlink{structNodoCarga}{NodoCarga}}*\ \mbox{\hyperlink{structNodoCarga_aadd7fb984d921610b32ff385c6ee0988}{next}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00090}00090\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00095}\mbox{\hyperlink{structNodoCarga_a60be300646abda8ce4cc20bfbfd2a91d}{00095}}\ \ \ \ \ \mbox{\hyperlink{structNodoCarga_a60be300646abda8ce4cc20bfbfd2a91d}{NodoCarga}}(\textcolor{keywordtype}{char}\ d)\ :\ \mbox{\hyperlink{structNodoCarga_ac82031ee44864bf90a942c1ecb32ffb1}{dato}}(d),\ \mbox{\hyperlink{structNodoCarga_a7b43ae914fbe417a224bf1f293f23c1b}{prev}}(nullptr),\ \mbox{\hyperlink{structNodoCarga_aadd7fb984d921610b32ff385c6ee0988}{next}}(nullptr)\ \{\}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00096}00096\ \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00102}\mbox{\hyperlink{structNodoRotor}{00102}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structNodoRotor}{NodoRotor}}\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00103}\mbox{\hyperlink{structNodoRotor_a882cdb4a4a61b36e8dfccf724d457e79}{00103}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structNodoRotor_a882cdb4a4a61b36e8dfccf724d457e79}{c}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00104}\mbox{\hyperlink{structNodoRotor_a7f4f14c49e564c5c83838f605793485f}{00104}}\ \ \ \ \ \mbox{\hyperlink{structNodoRotor}{NodoRotor}}*\ \mbox{\hyperlink{structNodoRotor_a7f4f14c49e564c5c83838f605793485f}{prev}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00105}\mbox{\hyperlink{structNodoRotor_aa471e153715b8598c2cc63dd704a1d0c}{00105}}\ \ \ \ \ \mbox{\hyperlink{structNodoRotor}{NodoRotor}}*\ \mbox{\hyperlink{structNodoRotor_aa471e153715b8598c2cc63dd704a1d0c}{next}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00106}00106\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00111}\mbox{\hyperlink{structNodoRotor_a4d1c8a2924ed571110b3eb6b9ef568eb}{00111}}\ \ \ \ \ \mbox{\hyperlink{structNodoRotor_a4d1c8a2924ed571110b3eb6b9ef568eb}{NodoRotor}}(\textcolor{keywordtype}{char}\ ch)\ :\ \mbox{\hyperlink{structNodoRotor_a882cdb4a4a61b36e8dfccf724d457e79}{c}}(ch),\ \mbox{\hyperlink{structNodoRotor_a7f4f14c49e564c5c83838f605793485f}{prev}}(nullptr),\ \mbox{\hyperlink{structNodoRotor_aa471e153715b8598c2cc63dd704a1d0c}{next}}(nullptr)\ \{\}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00112}00112\ \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00114}00114\ \textcolor{comment}{/**************************************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00115}00115\ \textcolor{comment}{\ *\ @class\ ListaDeCarga}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00116}00116\ \textcolor{comment}{\ *\ @brief\ Lista\ doblemente\ enlazada\ para\ almacenar\ fragmentos\ decodificados}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00117}00117\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00118}00118\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00119}00119\ \textcolor{comment}{\ *\ Implementación\ manual\ (sin\ STL)\ de\ una\ lista\ doblemente\ enlazada\ que}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00120}00120\ \textcolor{comment}{\ *\ mantiene\ el\ orden\ de\ los\ fragmentos\ de\ mensaje\ a\ medida\ que\ se\ decodifican.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00121}00121\ \textcolor{comment}{\ **************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00122}\mbox{\hyperlink{classListaDeCarga}{00122}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classListaDeCarga}{ListaDeCarga}}\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00123}00123\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00124}\mbox{\hyperlink{classListaDeCarga_adc4fbbeb293cf81ef32666295e62b2ec}{00124}}\ \ \ \ \ \mbox{\hyperlink{structNodoCarga}{NodoCarga}}*\ \mbox{\hyperlink{classListaDeCarga_adc4fbbeb293cf81ef32666295e62b2ec}{head}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00125}\mbox{\hyperlink{classListaDeCarga_aa9ded6faeea5f091142aca741bbb116a}{00125}}\ \ \ \ \ \mbox{\hyperlink{structNodoCarga}{NodoCarga}}*\ \mbox{\hyperlink{classListaDeCarga_aa9ded6faeea5f091142aca741bbb116a}{tail}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00127}00127\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00132}\mbox{\hyperlink{classListaDeCarga_ad45449e2427d1ebc6f31c737a213d7d6}{00132}}\ \ \ \ \ \mbox{\hyperlink{classListaDeCarga_ad45449e2427d1ebc6f31c737a213d7d6}{ListaDeCarga}}()\ :\ \mbox{\hyperlink{classListaDeCarga_adc4fbbeb293cf81ef32666295e62b2ec}{head}}(nullptr),\ \mbox{\hyperlink{classListaDeCarga_aa9ded6faeea5f091142aca741bbb116a}{tail}}(nullptr)\ \{\}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00133}00133\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00138}\mbox{\hyperlink{classListaDeCarga_aa2082ca43fa7ead69098c33963096276}{00138}}\ \ \ \ \ \mbox{\hyperlink{classListaDeCarga_aa2082ca43fa7ead69098c33963096276}{\string~ListaDeCarga}}()\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNodoCarga}{NodoCarga}}*\ cur\ =\ \mbox{\hyperlink{classListaDeCarga_adc4fbbeb293cf81ef32666295e62b2ec}{head}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (cur)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNodoCarga}{NodoCarga}}*\ nx\ =\ cur-\/>\mbox{\hyperlink{structNodoCarga_aadd7fb984d921610b32ff385c6ee0988}{next}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ cur;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ cur\ =\ nx;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00145}00145\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00152}\mbox{\hyperlink{classListaDeCarga_a6c659099ea4a85ff3a8ae2de024dfdc0}{00152}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classListaDeCarga_a6c659099ea4a85ff3a8ae2de024dfdc0}{insertarAlFinal}}(\textcolor{keywordtype}{char}\ dato)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNodoCarga}{NodoCarga}}*\ n\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structNodoCarga}{NodoCarga}}(dato);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classListaDeCarga_aa9ded6faeea5f091142aca741bbb116a}{tail}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classListaDeCarga_adc4fbbeb293cf81ef32666295e62b2ec}{head}}\ =\ \mbox{\hyperlink{classListaDeCarga_aa9ded6faeea5f091142aca741bbb116a}{tail}}\ =\ n;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classListaDeCarga_aa9ded6faeea5f091142aca741bbb116a}{tail}}-\/>\mbox{\hyperlink{structNodoCarga_aadd7fb984d921610b32ff385c6ee0988}{next}}\ =\ n;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ n-\/>\mbox{\hyperlink{structNodoCarga_a7b43ae914fbe417a224bf1f293f23c1b}{prev}}\ =\ \mbox{\hyperlink{classListaDeCarga_aa9ded6faeea5f091142aca741bbb116a}{tail}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classListaDeCarga_aa9ded6faeea5f091142aca741bbb116a}{tail}}\ =\ n;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00161}00161\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00167}\mbox{\hyperlink{classListaDeCarga_a90f5187002875f9a4bc856db5d86ff35}{00167}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classListaDeCarga_a90f5187002875f9a4bc856db5d86ff35}{imprimirMensaje}}()\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Mensaje:\ "{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNodoCarga}{NodoCarga}}*\ cur\ =\ \mbox{\hyperlink{classListaDeCarga_adc4fbbeb293cf81ef32666295e62b2ec}{head}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (cur)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}["{}}\ <<\ (cur-\/>\mbox{\hyperlink{structNodoCarga_ac82031ee44864bf90a942c1ecb32ffb1}{dato}}\ ==\ \textcolor{charliteral}{'\ '}\ ?\ \textcolor{charliteral}{'\ '}\ :\ cur-\/>\mbox{\hyperlink{structNodoCarga_ac82031ee44864bf90a942c1ecb32ffb1}{dato}})\ <<\ \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ cur\ =\ cur-\/>\mbox{\hyperlink{structNodoCarga_aadd7fb984d921610b32ff385c6ee0988}{next}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00175}00175\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00181}\mbox{\hyperlink{classListaDeCarga_a03df95d5deeb99fbaddbadf3bf9c8934}{00181}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classListaDeCarga_a03df95d5deeb99fbaddbadf3bf9c8934}{imprimirMensajeFinal}}()\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}MENSAJE\ OCULTO\ ENSAMBLADO:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNodoCarga}{NodoCarga}}*\ cur\ =\ \mbox{\hyperlink{classListaDeCarga_adc4fbbeb293cf81ef32666295e62b2ec}{head}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (cur)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ cur-\/>\mbox{\hyperlink{structNodoCarga_ac82031ee44864bf90a942c1ecb32ffb1}{dato}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ cur\ =\ cur-\/>\mbox{\hyperlink{structNodoCarga_aadd7fb984d921610b32ff385c6ee0988}{next}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00189}00189\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00190}00190\ \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00192}00192\ \textcolor{comment}{/**************************************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00193}00193\ \textcolor{comment}{\ *\ @class\ RotorDeMapeo}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00194}00194\ \textcolor{comment}{\ *\ @brief\ Lista\ circular\ doblemente\ enlazada\ que\ implementa\ un\ rotor\ de\ cifrado}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00195}00195\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00196}00196\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00197}00197\ \textcolor{comment}{\ *\ Simula\ un\ disco\ de\ cifrado\ similar\ a\ una\ rueda\ de\ César.\ Contiene\ el}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00198}00198\ \textcolor{comment}{\ *\ alfabeto\ A-\/Z\ en\ una\ lista\ circular\ que\ puede\ rotarse\ para\ cambiar\ el\ mapeo.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00199}00199\ \textcolor{comment}{\ *\ La\ posición\ actual\ del\ rotor\ determina\ cómo\ se\ decodifica\ cada\ carácter.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00200}00200\ \textcolor{comment}{\ **************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00201}\mbox{\hyperlink{classRotorDeMapeo}{00201}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRotorDeMapeo}{RotorDeMapeo}}\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00202}00202\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00203}\mbox{\hyperlink{classRotorDeMapeo_af30703c2ef2fca6e8998879962e7dc61}{00203}}\ \ \ \ \ \mbox{\hyperlink{structNodoRotor}{NodoRotor}}*\ \mbox{\hyperlink{classRotorDeMapeo_af30703c2ef2fca6e8998879962e7dc61}{head}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00204}\mbox{\hyperlink{classRotorDeMapeo_af73a8a46493803cb43ce619b16660070}{00204}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classRotorDeMapeo_af73a8a46493803cb43ce619b16660070}{size}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00206}00206\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00211}\mbox{\hyperlink{classRotorDeMapeo_aa4a3be7c3ce2021244e4977e4ad856c9}{00211}}\ \ \ \ \ \mbox{\hyperlink{classRotorDeMapeo_aa4a3be7c3ce2021244e4977e4ad856c9}{RotorDeMapeo}}()\ :\ \mbox{\hyperlink{classRotorDeMapeo_af30703c2ef2fca6e8998879962e7dc61}{head}}(nullptr),\ \mbox{\hyperlink{classRotorDeMapeo_af73a8a46493803cb43ce619b16660070}{size}}(0)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Construir\ lista\ circular\ A..Z}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNodoRotor}{NodoRotor}}*\ first\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNodoRotor}{NodoRotor}}*\ prev\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ ch\ =\ \textcolor{charliteral}{'A'};\ ch\ <=\ \textcolor{charliteral}{'Z'};\ ++ch)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNodoRotor}{NodoRotor}}*\ n\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structNodoRotor}{NodoRotor}}(ch);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!first)\ first\ =\ n;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (prev)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prev-\/>\mbox{\hyperlink{structNodoRotor_aa471e153715b8598c2cc63dd704a1d0c}{next}}\ =\ n;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n-\/>\mbox{\hyperlink{structNodoRotor_a7f4f14c49e564c5c83838f605793485f}{prev}}\ =\ prev;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ prev\ =\ n;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classRotorDeMapeo_af73a8a46493803cb43ce619b16660070}{size}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cerrar\ la\ circularidad}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (first\ \&\&\ prev)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ first-\/>\mbox{\hyperlink{structNodoRotor_a7f4f14c49e564c5c83838f605793485f}{prev}}\ =\ prev;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ prev-\/>\mbox{\hyperlink{structNodoRotor_aa471e153715b8598c2cc63dd704a1d0c}{next}}\ =\ first;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRotorDeMapeo_af30703c2ef2fca6e8998879962e7dc61}{head}}\ =\ first;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00231}00231\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00237}\mbox{\hyperlink{classRotorDeMapeo_adc5f4bfe5b8d66ba7c9bac38f4be4c5c}{00237}}\ \ \ \ \ \mbox{\hyperlink{classRotorDeMapeo_adc5f4bfe5b8d66ba7c9bac38f4be4c5c}{\string~RotorDeMapeo}}()\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classRotorDeMapeo_af30703c2ef2fca6e8998879962e7dc61}{head}})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Romper\ circularidad}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRotorDeMapeo_af30703c2ef2fca6e8998879962e7dc61}{head}}-\/>\mbox{\hyperlink{structNodoRotor_a7f4f14c49e564c5c83838f605793485f}{prev}}-\/>\mbox{\hyperlink{structNodoRotor_aa471e153715b8598c2cc63dd704a1d0c}{next}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNodoRotor}{NodoRotor}}*\ cur\ =\ \mbox{\hyperlink{classRotorDeMapeo_af30703c2ef2fca6e8998879962e7dc61}{head}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (cur)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNodoRotor}{NodoRotor}}*\ nx\ =\ cur-\/>\mbox{\hyperlink{structNodoRotor_aa471e153715b8598c2cc63dd704a1d0c}{next}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ cur;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ cur\ =\ nx;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00246}00246\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00247}00247\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00255}\mbox{\hyperlink{classRotorDeMapeo_a3a619484f83124461714341ebb842678}{00255}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRotorDeMapeo_a3a619484f83124461714341ebb842678}{rotar}}(\textcolor{keywordtype}{int}\ N)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00256}00256\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classRotorDeMapeo_af30703c2ef2fca6e8998879962e7dc61}{head}}\ ||\ \mbox{\hyperlink{classRotorDeMapeo_af73a8a46493803cb43ce619b16660070}{size}}\ <=\ 1)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00257}00257\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calcular\ desplazamiento\ efectivo}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ effective\ =\ N\ \%\ \mbox{\hyperlink{classRotorDeMapeo_af73a8a46493803cb43ce619b16660070}{size}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00260}00260\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (effective\ <\ 0)\ effective\ +=\ \mbox{\hyperlink{classRotorDeMapeo_af73a8a46493803cb43ce619b16660070}{size}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00261}00261\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Mover\ head}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ effective;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRotorDeMapeo_af30703c2ef2fca6e8998879962e7dc61}{head}}\ =\ \mbox{\hyperlink{classRotorDeMapeo_af30703c2ef2fca6e8998879962e7dc61}{head}}-\/>\mbox{\hyperlink{structNodoRotor_aa471e153715b8598c2cc63dd704a1d0c}{next}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\ -\/>\ ROTANDO\ ROTOR\ "{}}\ <<\ (N\ >=\ 0\ ?\ \textcolor{stringliteral}{"{}+"{}}\ :\ \textcolor{stringliteral}{"{}"{}})\ <<\ N\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ (efectivo:\ +"{}}\ <<\ effective\ <<\ \textcolor{stringliteral}{"{})"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00269}00269\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00270}00270\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00280}\mbox{\hyperlink{classRotorDeMapeo_a70d4ad4bcef4bd5cec9c8d2602859f5c}{00280}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classRotorDeMapeo_a70d4ad4bcef4bd5cec9c8d2602859f5c}{getMapeo}}(\textcolor{keywordtype}{char}\ in)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00281}00281\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (in\ ==\ \textcolor{charliteral}{'\ '})\ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00282}00282\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00283}00283\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Normalizar\ a\ mayúscula}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00284}00284\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (in\ >=\ \textcolor{charliteral}{'a'}\ \&\&\ in\ <=\ \textcolor{charliteral}{'z'})\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ in\ =\ char(in\ -\/\ \textcolor{charliteral}{'a'}\ +\ \textcolor{charliteral}{'A'});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00286}00286\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (in\ <\ \textcolor{charliteral}{'A'}\ ||\ in\ >\ \textcolor{charliteral}{'Z'})\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00288}00288\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ in;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00289}00289\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Encontrar\ posición\ y\ devolver\ carácter\ mapeado}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ in\ -\/\ \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNodoRotor}{NodoRotor}}*\ cur\ =\ \mbox{\hyperlink{classRotorDeMapeo_af30703c2ef2fca6e8998879962e7dc61}{head}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ index;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ cur\ =\ cur-\/>\mbox{\hyperlink{structNodoRotor_aa471e153715b8598c2cc63dd704a1d0c}{next}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur-\/>\mbox{\hyperlink{structNodoRotor_a882cdb4a4a61b36e8dfccf724d457e79}{c}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00297}00297\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00298}00298\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00303}\mbox{\hyperlink{classRotorDeMapeo_ae751a8d79c9e18abaae39f2cf1b715ec}{00303}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRotorDeMapeo_ae751a8d79c9e18abaae39f2cf1b715ec}{imprimirEstado}}()\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classRotorDeMapeo_af30703c2ef2fca6e8998879962e7dc61}{head}})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Estado\ rotor\ (desde\ head):\ "{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00306}00306\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNodoRotor}{NodoRotor}}*\ cur\ =\ \mbox{\hyperlink{classRotorDeMapeo_af30703c2ef2fca6e8998879962e7dc61}{head}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00307}00307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classRotorDeMapeo_af73a8a46493803cb43ce619b16660070}{size}};\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ cur-\/>\mbox{\hyperlink{structNodoRotor_a882cdb4a4a61b36e8dfccf724d457e79}{c}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00309}00309\ \ \ \ \ \ \ \ \ \ \ \ \ cur\ =\ cur-\/>\mbox{\hyperlink{structNodoRotor_aa471e153715b8598c2cc63dd704a1d0c}{next}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00311}00311\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00312}00312\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00313}00313\ \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00314}00314\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00315}00315\ \textcolor{comment}{/**************************************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00316}00316\ \textcolor{comment}{\ *\ @class\ TramaLoad}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00317}00317\ \textcolor{comment}{\ *\ @brief\ Trama\ de\ tipo\ LOAD\ que\ contiene\ un\ fragmento\ de\ dato}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00318}00318\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00319}00319\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00320}00320\ \textcolor{comment}{\ *\ Representa\ una\ trama\ "{}L,X"{}\ donde\ X\ es\ un\ carácter\ que\ debe\ ser\ decodificado}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00321}00321\ \textcolor{comment}{\ *\ usando\ el\ estado\ actual\ del\ rotor\ y\ agregado\ a\ la\ lista\ de\ carga.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00322}00322\ \textcolor{comment}{\ **************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00323}\mbox{\hyperlink{classTramaLoad}{00323}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTramaLoad}{TramaLoad}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classTramaBase}{TramaBase}}\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00324}00324\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00325}\mbox{\hyperlink{classTramaLoad_adfd4692e7423114a0b4253c35c433623}{00325}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classTramaLoad_adfd4692e7423114a0b4253c35c433623}{fragmento}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00326}00326\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00327}00327\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00332}\mbox{\hyperlink{classTramaLoad_a7a12839062f697ce9dbcfd422c736744}{00332}}\ \ \ \ \ \mbox{\hyperlink{classTramaLoad_a7a12839062f697ce9dbcfd422c736744}{TramaLoad}}(\textcolor{keywordtype}{char}\ f)\ :\ \mbox{\hyperlink{classTramaLoad_adfd4692e7423114a0b4253c35c433623}{fragmento}}(f)\ \{\}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00333}00333\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00340}\mbox{\hyperlink{classTramaLoad_a1b1ac2a7297870d4f9c47e9d3375c370}{00340}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTramaLoad_a1b1ac2a7297870d4f9c47e9d3375c370}{procesar}}(\mbox{\hyperlink{classListaDeCarga}{ListaDeCarga}}*\ carga,\ \mbox{\hyperlink{classRotorDeMapeo}{RotorDeMapeo}}*\ rotor)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00341}00341\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Trama:\ [L,\ "{}}\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00342}00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ (\mbox{\hyperlink{classTramaLoad_adfd4692e7423114a0b4253c35c433623}{fragmento}}\ ==\ \textcolor{charliteral}{'\ '}\ ?\ \textcolor{stringliteral}{"{}Space"{}}\ :\ std::string(1,\ \mbox{\hyperlink{classTramaLoad_adfd4692e7423114a0b4253c35c433623}{fragmento}}))\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}]\ -\/>\ Procesando..."{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00344}00344\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00345}00345\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ dec\ =\ rotor-\/>\mbox{\hyperlink{classRotorDeMapeo_a70d4ad4bcef4bd5cec9c8d2602859f5c}{getMapeo}}(\mbox{\hyperlink{classTramaLoad_adfd4692e7423114a0b4253c35c433623}{fragmento}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00346}00346\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00347}00347\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\ -\/>\ Fragmento\ '"{}}\ <<\ \mbox{\hyperlink{classTramaLoad_adfd4692e7423114a0b4253c35c433623}{fragmento}}\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}'\ decodificado\ como\ '"{}}\ <<\ dec\ <<\ \textcolor{stringliteral}{"{}'.\ "{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00350}00350\ \ \ \ \ \ \ \ \ carga-\/>\mbox{\hyperlink{classListaDeCarga_a6c659099ea4a85ff3a8ae2de024dfdc0}{insertarAlFinal}}(dec);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00351}00351\ \ \ \ \ \ \ \ \ carga-\/>\mbox{\hyperlink{classListaDeCarga_a90f5187002875f9a4bc856db5d86ff35}{imprimirMensaje}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00352}00352\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00353}00353\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00357}\mbox{\hyperlink{classTramaLoad_a1ae7466c4b70ac788ce6a7c665336bb8}{00357}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classTramaLoad_a1ae7466c4b70ac788ce6a7c665336bb8}{\string~TramaLoad}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00358}00358\ \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00359}00359\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00360}00360\ \textcolor{comment}{/**************************************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00361}00361\ \textcolor{comment}{\ *\ @class\ TramaMap}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00362}00362\ \textcolor{comment}{\ *\ @brief\ Trama\ de\ tipo\ MAP\ que\ modifica\ la\ rotación\ del\ rotor}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00363}00363\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00364}00364\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00365}00365\ \textcolor{comment}{\ *\ Representa\ una\ trama\ "{}M,N"{}\ donde\ N\ es\ un\ entero\ que\ indica\ cuántas}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00366}00366\ \textcolor{comment}{\ *\ posiciones\ debe\ rotar\ el\ rotor\ (positivo\ o\ negativo).}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00367}00367\ \textcolor{comment}{\ **************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00368}\mbox{\hyperlink{classTramaMap}{00368}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTramaMap}{TramaMap}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classTramaBase}{TramaBase}}\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00369}00369\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00370}\mbox{\hyperlink{classTramaMap_a0ab3d39dc9d83e1ddee22cf69f6eaf24}{00370}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classTramaMap_a0ab3d39dc9d83e1ddee22cf69f6eaf24}{desplazamiento}};\ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00371}00371\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00372}00372\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00377}\mbox{\hyperlink{classTramaMap_a9c6e196a51a390e0d7641257cd98a089}{00377}}\ \ \ \ \ \mbox{\hyperlink{classTramaMap_a9c6e196a51a390e0d7641257cd98a089}{TramaMap}}(\textcolor{keywordtype}{int}\ d)\ :\ \mbox{\hyperlink{classTramaMap_a0ab3d39dc9d83e1ddee22cf69f6eaf24}{desplazamiento}}(d)\ \{\}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00378}00378\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00385}\mbox{\hyperlink{classTramaMap_abaa69dc4fcbacbb7a7e6f2d24fce238c}{00385}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTramaMap_abaa69dc4fcbacbb7a7e6f2d24fce238c}{procesar}}(\mbox{\hyperlink{classListaDeCarga}{ListaDeCarga}}*\ carga,\ \mbox{\hyperlink{classRotorDeMapeo}{RotorDeMapeo}}*\ rotor)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00386}00386\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Trama:\ [M,"{}}\ <<\ \mbox{\hyperlink{classTramaMap_a0ab3d39dc9d83e1ddee22cf69f6eaf24}{desplazamiento}}\ <<\ \textcolor{stringliteral}{"{}]\ -\/>\ Procesando...\ "{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00387}00387\ \ \ \ \ \ \ \ \ rotor-\/>\mbox{\hyperlink{classRotorDeMapeo_a3a619484f83124461714341ebb842678}{rotar}}(\mbox{\hyperlink{classTramaMap_a0ab3d39dc9d83e1ddee22cf69f6eaf24}{desplazamiento}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00388}00388\ \ \ \ \ \ \ \ \ rotor-\/>\mbox{\hyperlink{classRotorDeMapeo_ae751a8d79c9e18abaae39f2cf1b715ec}{imprimirEstado}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00389}00389\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00390}00390\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00394}\mbox{\hyperlink{classTramaMap_ad4e67d3a3d1e512939133e56244c62d4}{00394}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classTramaMap_ad4e67d3a3d1e512939133e56244c62d4}{\string~TramaMap}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00395}00395\ \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00396}00396\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00397}00397\ \textcolor{comment}{/**************************************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00398}00398\ \textcolor{comment}{\ *\ @class\ SerialReader}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00399}00399\ \textcolor{comment}{\ *\ @brief\ Clase\ para\ leer\ datos\ desde\ puerto\ serial\ o\ archivo\ de\ simulación}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00400}00400\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00401}00401\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00402}00402\ \textcolor{comment}{\ *\ Intenta\ abrir\ un\ puerto\ serial\ en\ Linux.\ Si\ falla,\ intenta\ abrir\ como}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00403}00403\ \textcolor{comment}{\ *\ archivo\ de\ texto\ para\ simulación.\ Soporta\ lectura\ línea\ por\ línea.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00404}00404\ \textcolor{comment}{\ **************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00405}\mbox{\hyperlink{classSerialReader}{00405}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSerialReader}{SerialReader}}\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00406}00406\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00407}\mbox{\hyperlink{classSerialReader_a0b7f8179d0bd2620022ab99ae427d346}{00407}}\ \ \ \ \ FILE*\ \mbox{\hyperlink{classSerialReader_a0b7f8179d0bd2620022ab99ae427d346}{f}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00408}\mbox{\hyperlink{classSerialReader_a23e32f36f9855bac21ffaef9f086403a}{00408}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSerialReader_a23e32f36f9855bac21ffaef9f086403a}{is\_serial}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00409}00409\ \textcolor{preprocessor}{\#ifdef\ \_\_linux\_\_}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00410}00410\ \ \ \ \ \textcolor{keywordtype}{int}\ fd;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00411}00411\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00412}00412\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00413}00413\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00417}\mbox{\hyperlink{classSerialReader_a182a5d78dad1bbb57fe7e86ae68fea82}{00417}}\ \ \ \ \ \mbox{\hyperlink{classSerialReader_a182a5d78dad1bbb57fe7e86ae68fea82}{SerialReader}}()\ :\ \mbox{\hyperlink{classSerialReader_a0b7f8179d0bd2620022ab99ae427d346}{f}}(nullptr),\ \mbox{\hyperlink{classSerialReader_a23e32f36f9855bac21ffaef9f086403a}{is\_serial}}(false)}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00418}00418\ \#ifdef\ \_\_linux\_\_}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00419}00419\ \ \ \ \ ,\ fd(-\/1)}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00420}00420\ \#endif}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00421}00421\ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00422}00422\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00426}\mbox{\hyperlink{classSerialReader_a3a5314ddbf65796603139fbec05c2cf6}{00426}}\ \ \ \ \ \mbox{\hyperlink{classSerialReader_a3a5314ddbf65796603139fbec05c2cf6}{\string~SerialReader}}()\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00427}00427\ \textcolor{preprocessor}{\#ifdef\ \_\_linux\_\_}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00428}00428\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fd\ !=\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00429}00429\ \ \ \ \ \ \ \ \ \ \ \ \ close(fd);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00430}00430\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00431}00431\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00432}00432\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classSerialReader_a0b7f8179d0bd2620022ab99ae427d346}{f}})\ fclose(\mbox{\hyperlink{classSerialReader_a0b7f8179d0bd2620022ab99ae427d346}{f}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00433}00433\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00434}00434\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00442}\mbox{\hyperlink{classSerialReader_a1389ba8a325b2d3f429b0fb7dd28190c}{00442}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSerialReader_a1389ba8a325b2d3f429b0fb7dd28190c}{abrir}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path,\ \textcolor{keywordtype}{int}\ baud\ =\ 9600)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00443}00443\ \textcolor{preprocessor}{\#ifdef\ \_\_linux\_\_}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00444}00444\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Intentar\ como\ puerto\ serial}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00445}00445\ \ \ \ \ \ \ \ \ fd\ =\ open(path,\ O\_RDONLY\ |\ O\_NOCTTY\ |\ O\_NONBLOCK);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00446}00446\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fd\ !=\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00447}00447\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }termios\ tty;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00448}00448\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tcgetattr(fd,\ \&tty)\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00449}00449\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cfmakeraw(\&tty);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00450}00450\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cfsetspeed(\&tty,\ B9600);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00451}00451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tty.c\_cflag\ \&=\ \string~PARENB;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00452}00452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tty.c\_cflag\ \&=\ \string~CSTOPB;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00453}00453\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tty.c\_cflag\ \&=\ \string~CSIZE;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00454}00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tty.c\_cflag\ |=\ CS8;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00455}00455\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tty.c\_cflag\ |=\ CREAD;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00456}00456\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tcsetattr(fd,\ TCSANOW,\ \&tty);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00457}00457\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00458}00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSerialReader_a0b7f8179d0bd2620022ab99ae427d346}{f}}\ =\ fdopen(fd,\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00459}00459\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classSerialReader_a0b7f8179d0bd2620022ab99ae427d346}{f}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00460}00460\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ close(fd);\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00461}00461\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fd\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00462}00462\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00463}00463\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSerialReader_a23e32f36f9855bac21ffaef9f086403a}{is\_serial}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00464}00464\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Conexión\ serial\ abierta\ en\ "{}}\ <<\ path\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00465}00465\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00466}00466\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00467}00467\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00468}00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ close(fd);\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00469}00469\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fd\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00470}00470\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00471}00471\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00472}00472\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00473}00473\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fallback:\ archivo\ de\ simulación}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00474}00474\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSerialReader_a0b7f8179d0bd2620022ab99ae427d346}{f}}\ =\ fopen(path,\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00475}00475\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classSerialReader_a0b7f8179d0bd2620022ab99ae427d346}{f}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00476}00476\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Error\ abriendo\ '"{}}\ <<\ path\ <<\ \textcolor{stringliteral}{"{}':\ "{}}\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00477}00477\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ strerror(errno)\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00478}00478\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00479}00479\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00480}00480\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSerialReader_a23e32f36f9855bac21ffaef9f086403a}{is\_serial}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00481}00481\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Abierto\ archivo\ de\ simulación:\ "{}}\ <<\ path\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00482}00482\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00483}00483\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00484}00484\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00492}\mbox{\hyperlink{classSerialReader_aa764c02e6c35c608d6c0e04ce3f8563c}{00492}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSerialReader_aa764c02e6c35c608d6c0e04ce3f8563c}{leerLinea}}(\textcolor{keywordtype}{char}*\ outBuf,\ \textcolor{keywordtype}{size\_t}\ maxLen)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00493}00493\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classSerialReader_a0b7f8179d0bd2620022ab99ae427d346}{f}})\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00494}00494\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fgets(outBuf,\ (\textcolor{keywordtype}{int})maxLen,\ \mbox{\hyperlink{classSerialReader_a0b7f8179d0bd2620022ab99ae427d346}{f}})\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00495}00495\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00496}00496\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00497}00497\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Eliminar\ \(\backslash\)r\(\backslash\)n}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00498}00498\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ L\ =\ strlen(outBuf);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00499}00499\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (L\ >\ 0\ \&\&\ (outBuf[L-\/1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'}\ ||\ outBuf[L-\/1]\ ==\ \textcolor{charliteral}{'\(\backslash\)r'}))\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00500}00500\ \ \ \ \ \ \ \ \ \ \ \ \ outBuf[-\/-\/L]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00501}00501\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00502}00502\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00503}00503\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00504}00504\ \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00505}00505\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00506}00506\ \textcolor{comment}{/**************************************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00507}00507\ \textcolor{comment}{\ *\ Funciones\ auxiliares}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00508}00508\ \textcolor{comment}{\ **************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00509}00509\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00515}\mbox{\hyperlink{main_8cpp_a0864f825628874d6ffb73922e3138c0c}{00515}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8cpp_a0864f825628874d6ffb73922e3138c0c}{trim}}(\textcolor{keywordtype}{char}*\ s)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00516}00516\ \ \ \ \ \textcolor{comment}{//\ Trim\ izquierdo}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00517}00517\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00518}00518\ \ \ \ \ \textcolor{keywordflow}{while}\ (s[i]\ \&\&\ isspace((\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char})s[i]))\ ++i;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00519}00519\ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >\ 0)\ memmove(s,\ s\ +\ i,\ strlen(s\ +\ i)\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00520}00520\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00521}00521\ \ \ \ \ \textcolor{comment}{//\ Trim\ derecho}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00522}00522\ \ \ \ \ \textcolor{keywordtype}{int}\ L\ =\ (int)strlen(s);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00523}00523\ \ \ \ \ \textcolor{keywordflow}{while}\ (L\ >\ 0\ \&\&\ isspace((\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char})s[L-\/1]))\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00524}00524\ \ \ \ \ \ \ \ \ s[-\/-\/L]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00525}00525\ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00526}00526\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00537}\mbox{\hyperlink{main_8cpp_a5ef851a64a3d7f8b1f04c2ed988fff8c}{00537}}\ \mbox{\hyperlink{classTramaBase}{TramaBase}}*\ \mbox{\hyperlink{main_8cpp_a5ef851a64a3d7f8b1f04c2ed988fff8c}{parseLinea}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ lineaC)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00538}00538\ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[128];}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00539}00539\ \ \ \ \ strncpy(buffer,\ lineaC,\ \textcolor{keyword}{sizeof}(buffer));}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00540}00540\ \ \ \ \ buffer[\textcolor{keyword}{sizeof}(buffer)-\/1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00541}00541\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a0864f825628874d6ffb73922e3138c0c}{trim}}(buffer);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00542}00542\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00543}00543\ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(buffer)\ ==\ 0)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00544}00544\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00545}00545\ \ \ \ \ \textcolor{comment}{//\ Tokenizar\ por\ coma}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00546}00546\ \ \ \ \ \textcolor{keywordtype}{char}*\ token\ =\ strtok(buffer,\ \textcolor{stringliteral}{"{},"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00547}00547\ \ \ \ \ \textcolor{keywordflow}{if}\ (!token)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00548}00548\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a0864f825628874d6ffb73922e3138c0c}{trim}}(token);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00549}00549\ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(token)\ ==\ 0)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00550}00550\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00551}00551\ \ \ \ \ \textcolor{comment}{//\ Trama\ LOAD}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00552}00552\ \ \ \ \ \textcolor{keywordflow}{if}\ ((token[0]\ ==\ \textcolor{charliteral}{'L'}\ ||\ token[0]\ ==\ \textcolor{charliteral}{'l'})\ \&\&\ (token[1]\ ==\ \textcolor{charliteral}{'\(\backslash\)0'}))\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00553}00553\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ arg\ =\ strtok(\textcolor{keyword}{nullptr},\ \textcolor{stringliteral}{"{},"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00554}00554\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!arg)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00555}00555\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Trama\ L\ sin\ argumento."{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00556}00556\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00557}00557\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00558}00558\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a0864f825628874d6ffb73922e3138c0c}{trim}}(arg);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00559}00559\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00560}00560\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Detectar\ "{}Space"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00561}00561\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((arg[0]\ ==\ \textcolor{charliteral}{'S'}\ ||\ arg[0]\ ==\ \textcolor{charliteral}{'s'})\ \&\&\ (strcasecmp(arg,\ \textcolor{stringliteral}{"{}Space"{}})\ ==\ 0))\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00562}00562\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classTramaLoad}{TramaLoad}}(\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00563}00563\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00564}00564\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00565}00565\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Carácter\ único}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00566}00566\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(arg)\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00567}00567\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classTramaLoad}{TramaLoad}}(arg[0]);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00568}00568\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00569}00569\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00570}00570\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tomar\ primer\ carácter}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00571}00571\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(arg)\ >\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00572}00572\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classTramaLoad}{TramaLoad}}(arg[0]);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00573}00573\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00574}00574\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00575}00575\ \ \ \ \ \}\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00576}00576\ \ \ \ \ \textcolor{comment}{//\ Trama\ MAP}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00577}00577\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((token[0]\ ==\ \textcolor{charliteral}{'M'}\ ||\ token[0]\ ==\ \textcolor{charliteral}{'m'})\ \&\&\ (token[1]\ ==\ \textcolor{charliteral}{'\(\backslash\)0'}))\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00578}00578\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ arg\ =\ strtok(\textcolor{keyword}{nullptr},\ \textcolor{stringliteral}{"{},"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00579}00579\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!arg)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00580}00580\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Trama\ M\ sin\ argumento."{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00581}00581\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00582}00582\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00583}00583\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a0864f825628874d6ffb73922e3138c0c}{trim}}(arg);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00584}00584\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ atoi(arg);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00585}00585\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classTramaMap}{TramaMap}}(n);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00586}00586\ \ \ \ \ \}\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00587}00587\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00588}00588\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Tipo\ de\ trama\ desconocido:\ "{}}\ <<\ token\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00589}00589\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00590}00590\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00591}00591\ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00592}00592\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00593}00593\ \textcolor{comment}{/**************************************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00594}00594\ \textcolor{comment}{\ *\ @brief\ Función\ principal\ del\ decodificador\ PRT-\/7}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00595}00595\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00596}00596\ \textcolor{comment}{\ *\ @param\ argc\ Número\ de\ argumentos}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00597}00597\ \textcolor{comment}{\ *\ @param\ argv\ Array\ de\ argumentos}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00598}00598\ \textcolor{comment}{\ *\ @return\ 0\ si\ éxito,\ 1\ si\ error}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00599}00599\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00600}00600\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00601}00601\ \textcolor{comment}{\ *\ Inicializa\ las\ estructuras\ de\ datos,\ abre\ la\ conexión\ serial/archivo,}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00602}00602\ \textcolor{comment}{\ *\ lee\ y\ procesa\ tramas\ en\ un\ bucle,\ y\ finalmente\ muestra\ el\ mensaje\ decodificado.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00603}00603\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00604}00604\ \textcolor{comment}{\ *\ @section\ args\ Argumentos}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00605}00605\ \textcolor{comment}{\ *\ -\/\ -\/-\/sim\ <archivo>\ :\ Modo\ simulación\ con\ archivo\ de\ texto}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00606}00606\ \textcolor{comment}{\ *\ -\/\ -\/-\/serial\ <dispositivo>\ :\ Modo\ serial\ real\ (Linux)}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00607}00607\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00608}00608\ \textcolor{comment}{\ *\ @section\ ejemplo\ Ejemplo\ de\ uso}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00609}00609\ \textcolor{comment}{\ *\ @code}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00610}00610\ \textcolor{comment}{\ *\ ./prtdcd\ -\/-\/sim\ entrada.txt}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00611}00611\ \textcolor{comment}{\ *\ ./prtdcd\ -\/-\/serial\ /dev/ttyUSB0}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00612}00612\ \textcolor{comment}{\ *\ @endcode}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00613}00613\ \textcolor{comment}{\ **************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00614}\mbox{\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{00614}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}**\ argv)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00615}00615\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Iniciando\ Decodificador\ PRT-\/7.\ Preparando\ estructuras..."{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00616}00616\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00617}00617\ \ \ \ \ \mbox{\hyperlink{classListaDeCarga}{ListaDeCarga}}\ miCarga;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00618}00618\ \ \ \ \ \mbox{\hyperlink{classRotorDeMapeo}{RotorDeMapeo}}\ miRotor;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00619}00619\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00620}00620\ \ \ \ \ \textcolor{comment}{//\ Validar\ argumentos}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00621}00621\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ <\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00622}00622\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Uso:\ "{}}\ <<\ argv[0]\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00623}00623\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ -\/-\/sim\ <archivo\_simulacion>\ \ \ (o)\ \ -\/-\/serial\ <dispositivo>"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00624}00624\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Ejemplo\ de\ archivo\_simulacion\ (lineas):\ "{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00625}00625\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}L,H\ \ L,O\ \ L,L\ \ M,2\ \ L,A\ \ L,Space\ \ L,W\ \ M,-\/2\ \ L,O\ \ L,R\ \ L,L\ \ L,D"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00626}00626\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Saliendo\ (ningún\ archivo\ ni\ serial\ especificado)."{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00627}00627\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00628}00628\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00629}00629\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00630}00630\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ modo\ =\ argv[1];}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00631}00631\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ruta\ =\ (argc\ >=\ 3\ ?\ argv[2]\ :\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00632}00632\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00633}00633\ \ \ \ \ \mbox{\hyperlink{classSerialReader}{SerialReader}}\ reader;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00634}00634\ \ \ \ \ \textcolor{keywordflow}{if}\ (!ruta)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00635}00635\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Falta\ ruta\ (archivo\ o\ dispositivo)."{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00636}00636\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00637}00637\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00638}00638\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00639}00639\ \ \ \ \ \textcolor{comment}{//\ Abrir\ conexión}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00640}00640\ \ \ \ \ \textcolor{keywordtype}{bool}\ opened\ =\ reader.\mbox{\hyperlink{classSerialReader_a1389ba8a325b2d3f429b0fb7dd28190c}{abrir}}(ruta);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00641}00641\ \ \ \ \ \textcolor{keywordflow}{if}\ (!opened)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00642}00642\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}No\ se\ pudo\ abrir\ ruta:\ "{}}\ <<\ ruta\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00643}00643\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00644}00644\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00645}00645\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00646}00646\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Conexión\ establecida.\ Esperando\ tramas..."{}}\ <<\ endl\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00647}00647\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00648}00648\ \ \ \ \ \textcolor{comment}{//\ Bucle\ principal\ de\ procesamiento}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00649}00649\ \ \ \ \ \textcolor{keywordtype}{char}\ linea[256];}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00650}00650\ \ \ \ \ \textcolor{keywordflow}{while}\ (reader.\mbox{\hyperlink{classSerialReader_aa764c02e6c35c608d6c0e04ce3f8563c}{leerLinea}}(linea,\ \textcolor{keyword}{sizeof}(linea)))\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00651}00651\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Trama\ recibida:\ ["{}}\ <<\ linea\ <<\ \textcolor{stringliteral}{"{}]\ "{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00652}00652\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00653}00653\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Parsear\ trama}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00654}00654\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTramaBase}{TramaBase}}*\ trama\ =\ \mbox{\hyperlink{main_8cpp_a5ef851a64a3d7f8b1f04c2ed988fff8c}{parseLinea}}(linea);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00655}00655\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!trama)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00656}00656\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\ -\/>\ Trama\ inválida.\ Se\ ignora."{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00657}00657\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00658}00658\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00659}00659\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00660}00660\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Procesar\ trama\ (polimorfismo)}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00661}00661\ \ \ \ \ \ \ \ \ trama-\/>\mbox{\hyperlink{classTramaBase_a7adf0eea6b0eb612f7eeabac637c50a9}{procesar}}(\&miCarga,\ \&miRotor);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00662}00662\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00663}00663\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Liberar\ memoria}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00664}00664\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ trama;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00665}00665\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00666}00666\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00667}00667\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00668}00668\ \ \ \ \ \textcolor{comment}{//\ Mostrar\ resultado\ final}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00669}00669\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/\(\backslash\)nFlujo\ de\ datos\ terminado.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00670}00670\ \ \ \ \ miCarga.\mbox{\hyperlink{classListaDeCarga_a03df95d5deeb99fbaddbadf3bf9c8934}{imprimirMensajeFinal}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00671}00671\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/\(\backslash\)nLiberando\ memoria...\ Sistema\ apagado."{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00672}00672\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00673}00673\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00674}00674\ \}}
+
+\end{DoxyCode}

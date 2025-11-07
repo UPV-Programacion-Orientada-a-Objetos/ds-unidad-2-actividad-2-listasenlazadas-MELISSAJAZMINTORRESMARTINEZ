@@ -1,0 +1,222 @@
+\doxysection{Referencia de la clase Lista\+De\+Carga}
+\hypertarget{classListaDeCarga}{}\label{classListaDeCarga}\index{ListaDeCarga@{ListaDeCarga}}
+
+
+Diagrama de colaboración de Lista\+De\+Carga\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{classListaDeCarga__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classListaDeCarga_ad45449e2427d1ebc6f31c737a213d7d6}{Lista\+De\+Carga}} ()
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classListaDeCarga_aa2082ca43fa7ead69098c33963096276}{\texorpdfstring{$\sim$}{\string~}\+Lista\+De\+Carga}} ()
+\begin{DoxyCompactList}\small\item\em Destructor -\/ libera toda la memoria de los nodos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classListaDeCarga_a6c659099ea4a85ff3a8ae2de024dfdc0}{insertar\+Al\+Final}} (char dato)
+\begin{DoxyCompactList}\small\item\em Inserta un carácter al final de la lista. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classListaDeCarga_a90f5187002875f9a4bc856db5d86ff35}{imprimir\+Mensaje}} ()
+\begin{DoxyCompactList}\small\item\em Imprime el mensaje actual entre corchetes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classListaDeCarga_a03df95d5deeb99fbaddbadf3bf9c8934}{imprimir\+Mensaje\+Final}} ()
+\begin{DoxyCompactList}\small\item\em Imprime el mensaje final completo sin corchetes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structNodoCarga}{Nodo\+Carga}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classListaDeCarga_adc4fbbeb293cf81ef32666295e62b2ec}{head}}
+\begin{DoxyCompactList}\small\item\em Puntero al primer nodo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structNodoCarga}{Nodo\+Carga}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classListaDeCarga_aa9ded6faeea5f091142aca741bbb116a}{tail}}
+\begin{DoxyCompactList}\small\item\em Puntero al último nodo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00122}{122}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{classListaDeCarga_ad45449e2427d1ebc6f31c737a213d7d6}\label{classListaDeCarga_ad45449e2427d1ebc6f31c737a213d7d6} 
+\index{ListaDeCarga@{ListaDeCarga}!ListaDeCarga@{ListaDeCarga}}
+\index{ListaDeCarga@{ListaDeCarga}!ListaDeCarga@{ListaDeCarga}}
+\doxysubsubsection{\texorpdfstring{ListaDeCarga()}{ListaDeCarga()}}
+{\footnotesize\ttfamily Lista\+De\+Carga\+::\+Lista\+De\+Carga (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor por defecto. 
+
+\begin{DoxyPostcond}{Postcondición}
+Lista vacía inicializada 
+\end{DoxyPostcond}
+
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00132}{132}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\Hypertarget{classListaDeCarga_aa2082ca43fa7ead69098c33963096276}\label{classListaDeCarga_aa2082ca43fa7ead69098c33963096276} 
+\index{ListaDeCarga@{ListaDeCarga}!````~ListaDeCarga@{\texorpdfstring{$\sim$}{\string~}ListaDeCarga}}
+\index{````~ListaDeCarga@{\texorpdfstring{$\sim$}{\string~}ListaDeCarga}!ListaDeCarga@{ListaDeCarga}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ListaDeCarga()}{\string~ListaDeCarga()}}
+{\footnotesize\ttfamily Lista\+De\+Carga\+::\texorpdfstring{$\sim$}{\string~}\+Lista\+De\+Carga (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destructor -\/ libera toda la memoria de los nodos. 
+
+Recorre la lista y elimina cada nodo individualmente 
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00138}{138}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{main_8cpp_source_l00124}{head}} y \mbox{\hyperlink{main_8cpp_source_l00089}{Nodo\+Carga\+::next}}.
+
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{classListaDeCarga_a90f5187002875f9a4bc856db5d86ff35}\label{classListaDeCarga_a90f5187002875f9a4bc856db5d86ff35} 
+\index{ListaDeCarga@{ListaDeCarga}!imprimirMensaje@{imprimirMensaje}}
+\index{imprimirMensaje@{imprimirMensaje}!ListaDeCarga@{ListaDeCarga}}
+\doxysubsubsection{\texorpdfstring{imprimirMensaje()}{imprimirMensaje()}}
+{\footnotesize\ttfamily void Lista\+De\+Carga\+::imprimir\+Mensaje (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Imprime el mensaje actual entre corchetes. 
+
+Formato\+: \mbox{[}H\mbox{]}\mbox{[}O\mbox{]}\mbox{[}L\mbox{]}\mbox{[}A\mbox{]} 
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00167}{167}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{main_8cpp_source_l00087}{Nodo\+Carga\+::dato}}, \mbox{\hyperlink{main_8cpp_source_l00124}{head}} y \mbox{\hyperlink{main_8cpp_source_l00089}{Nodo\+Carga\+::next}}.
+
+
+
+Referenciado por \mbox{\hyperlink{main_8cpp_source_l00340}{Trama\+Load\+::procesar()}}.
+
+Gráfico de llamadas a esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classListaDeCarga_a90f5187002875f9a4bc856db5d86ff35_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classListaDeCarga_a03df95d5deeb99fbaddbadf3bf9c8934}\label{classListaDeCarga_a03df95d5deeb99fbaddbadf3bf9c8934} 
+\index{ListaDeCarga@{ListaDeCarga}!imprimirMensajeFinal@{imprimirMensajeFinal}}
+\index{imprimirMensajeFinal@{imprimirMensajeFinal}!ListaDeCarga@{ListaDeCarga}}
+\doxysubsubsection{\texorpdfstring{imprimirMensajeFinal()}{imprimirMensajeFinal()}}
+{\footnotesize\ttfamily void Lista\+De\+Carga\+::imprimir\+Mensaje\+Final (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Imprime el mensaje final completo sin corchetes. 
+
+Se llama al finalizar el procesamiento de todas las tramas 
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00181}{181}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{main_8cpp_source_l00087}{Nodo\+Carga\+::dato}}, \mbox{\hyperlink{main_8cpp_source_l00124}{head}} y \mbox{\hyperlink{main_8cpp_source_l00089}{Nodo\+Carga\+::next}}.
+
+
+
+Referenciado por \mbox{\hyperlink{main_8cpp_source_l00614}{main()}}.
+
+Gráfico de llamadas a esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classListaDeCarga_a03df95d5deeb99fbaddbadf3bf9c8934_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classListaDeCarga_a6c659099ea4a85ff3a8ae2de024dfdc0}\label{classListaDeCarga_a6c659099ea4a85ff3a8ae2de024dfdc0} 
+\index{ListaDeCarga@{ListaDeCarga}!insertarAlFinal@{insertarAlFinal}}
+\index{insertarAlFinal@{insertarAlFinal}!ListaDeCarga@{ListaDeCarga}}
+\doxysubsubsection{\texorpdfstring{insertarAlFinal()}{insertarAlFinal()}}
+{\footnotesize\ttfamily void Lista\+De\+Carga\+::insertar\+Al\+Final (\begin{DoxyParamCaption}\item[{char}]{dato }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inserta un carácter al final de la lista. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em dato} & Carácter a insertar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondición}
+El carácter se agrega al final, manteniendo el orden de llegada 
+\end{DoxyPostcond}
+
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00152}{152}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{main_8cpp_source_l00124}{head}}, \mbox{\hyperlink{main_8cpp_source_l00089}{Nodo\+Carga\+::next}}, \mbox{\hyperlink{main_8cpp_source_l00088}{Nodo\+Carga\+::prev}} y \mbox{\hyperlink{main_8cpp_source_l00125}{tail}}.
+
+
+
+Referenciado por \mbox{\hyperlink{main_8cpp_source_l00340}{Trama\+Load\+::procesar()}}.
+
+Gráfico de llamadas a esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classListaDeCarga_a6c659099ea4a85ff3a8ae2de024dfdc0_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Documentación de datos miembro}
+\Hypertarget{classListaDeCarga_adc4fbbeb293cf81ef32666295e62b2ec}\label{classListaDeCarga_adc4fbbeb293cf81ef32666295e62b2ec} 
+\index{ListaDeCarga@{ListaDeCarga}!head@{head}}
+\index{head@{head}!ListaDeCarga@{ListaDeCarga}}
+\doxysubsubsection{\texorpdfstring{head}{head}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNodoCarga}{Nodo\+Carga}}\texorpdfstring{$\ast$}{*} Lista\+De\+Carga\+::head\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Puntero al primer nodo. 
+
+
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00124}{124}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Referenciado por \mbox{\hyperlink{main_8cpp_source_l00167}{imprimir\+Mensaje()}}, \mbox{\hyperlink{main_8cpp_source_l00181}{imprimir\+Mensaje\+Final()}}, \mbox{\hyperlink{main_8cpp_source_l00152}{insertar\+Al\+Final()}} y \mbox{\hyperlink{main_8cpp_source_l00138}{\texorpdfstring{$\sim$}{\string~}\+Lista\+De\+Carga()}}.
+
+\Hypertarget{classListaDeCarga_aa9ded6faeea5f091142aca741bbb116a}\label{classListaDeCarga_aa9ded6faeea5f091142aca741bbb116a} 
+\index{ListaDeCarga@{ListaDeCarga}!tail@{tail}}
+\index{tail@{tail}!ListaDeCarga@{ListaDeCarga}}
+\doxysubsubsection{\texorpdfstring{tail}{tail}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNodoCarga}{Nodo\+Carga}}\texorpdfstring{$\ast$}{*} Lista\+De\+Carga\+::tail\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Puntero al último nodo. 
+
+
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00125}{125}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Referenciado por \mbox{\hyperlink{main_8cpp_source_l00152}{insertar\+Al\+Final()}}.
+
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{main_8cpp}{main.\+cpp}}\end{DoxyCompactItemize}

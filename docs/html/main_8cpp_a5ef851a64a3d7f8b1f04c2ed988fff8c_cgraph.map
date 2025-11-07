@@ -1,0 +1,5 @@
+<map id="parseLinea" name="parseLinea">
+<area shape="rect" id="Node000001" title="Parsea una línea de texto y crea la trama correspondiente." alt="" coords="5,5,99,31"/>
+<area shape="rect" id="Node000002" href="$main_8cpp.html#a0864f825628874d6ffb73922e3138c0c" title="Elimina espacios en blanco al inicio y final de una cadena." alt="" coords="147,5,196,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,15,133,15,133,21,99,21"/>
+</map>

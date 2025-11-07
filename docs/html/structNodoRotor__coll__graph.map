@@ -1,0 +1,4 @@
+<map id="NodoRotor" name="NodoRotor">
+<area shape="rect" id="Node000001" title="Nodo para la lista circular del rotor de mapeo." alt="" coords="5,7,96,33"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="110,14,123,20,114,26,96,27,96,22,112,21,117,20,109,19"/>
+</map>

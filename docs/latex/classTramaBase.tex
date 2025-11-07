@@ -1,0 +1,90 @@
+\doxysection{Referencia de la clase Trama\+Base}
+\hypertarget{classTramaBase}{}\label{classTramaBase}\index{TramaBase@{TramaBase}}
+
+
+Diagrama de herencia de Trama\+Base
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{classTramaBase__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classTramaBase_a7adf0eea6b0eb612f7eeabac637c50a9}{procesar}} (\mbox{\hyperlink{classListaDeCarga}{Lista\+De\+Carga}} \texorpdfstring{$\ast$}{*}carga, \mbox{\hyperlink{classRotorDeMapeo}{Rotor\+De\+Mapeo}} \texorpdfstring{$\ast$}{*}rotor)=0
+\begin{DoxyCompactList}\small\item\em Procesa la trama y modifica las estructuras de datos. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classTramaBase_a18ebfa4d2bfccd937d095d31fbb0aa95}{\texorpdfstring{$\sim$}{\string~}\+Trama\+Base}} ()
+\begin{DoxyCompactList}\small\item\em Destructor virtual para permitir polimorfismo correcto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00060}{60}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{classTramaBase_a18ebfa4d2bfccd937d095d31fbb0aa95}\label{classTramaBase_a18ebfa4d2bfccd937d095d31fbb0aa95} 
+\index{TramaBase@{TramaBase}!````~TramaBase@{\texorpdfstring{$\sim$}{\string~}TramaBase}}
+\index{````~TramaBase@{\texorpdfstring{$\sim$}{\string~}TramaBase}!TramaBase@{TramaBase}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}TramaBase()}{\string~TramaBase()}}
+{\footnotesize\ttfamily virtual Trama\+Base\+::\texorpdfstring{$\sim$}{\string~}\+Trama\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Destructor virtual para permitir polimorfismo correcto. 
+
+Esencial para evitar fugas de memoria al eliminar objetos derivados 
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00075}{75}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{classTramaBase_a7adf0eea6b0eb612f7eeabac637c50a9}\label{classTramaBase_a7adf0eea6b0eb612f7eeabac637c50a9} 
+\index{TramaBase@{TramaBase}!procesar@{procesar}}
+\index{procesar@{procesar}!TramaBase@{TramaBase}}
+\doxysubsubsection{\texorpdfstring{procesar()}{procesar()}}
+{\footnotesize\ttfamily virtual void Trama\+Base\+::procesar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classListaDeCarga}{Lista\+De\+Carga}} \texorpdfstring{$\ast$}{*}}]{carga,  }\item[{\mbox{\hyperlink{classRotorDeMapeo}{Rotor\+De\+Mapeo}} \texorpdfstring{$\ast$}{*}}]{rotor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Procesa la trama y modifica las estructuras de datos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em carga} & Puntero a la lista de carga donde se almacenan fragmentos decodificados \\
+\hline
+{\em rotor} & Puntero al rotor de mapeo que realiza la decodificación \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondición}
+carga y rotor deben estar inicializados 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Las estructuras pueden ser modificadas según el tipo de trama 
+\end{DoxyPostcond}
+
+
+Implementado en \mbox{\hyperlink{classTramaLoad_a1b1ac2a7297870d4f9c47e9d3375c370}{Trama\+Load}} y \mbox{\hyperlink{classTramaMap_abaa69dc4fcbacbb7a7e6f2d24fce238c}{Trama\+Map}}.
+
+
+
+Referenciado por \mbox{\hyperlink{main_8cpp_source_l00614}{main()}}.
+
+Gráfico de llamadas a esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{classTramaBase_a7adf0eea6b0eb612f7eeabac637c50a9_icgraph}
+\end{center}
+\end{figure}
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{main_8cpp}{main.\+cpp}}\end{DoxyCompactItemize}

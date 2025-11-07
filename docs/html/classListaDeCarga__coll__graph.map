@@ -1,0 +1,6 @@
+<map id="ListaDeCarga" name="ListaDeCarga">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,112,115,137"/>
+<area shape="rect" id="Node000002" href="$structNodoCarga.html" title="Nodo para la lista doblemente enlazada de fragmentos decodificados." alt="" coords="13,7,107,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,47,63,112,57,112,57,47"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="122,9,130,13,134,20,126,29,108,33,107,27,123,25,129,20,127,17,120,14"/>
+</map>

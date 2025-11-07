@@ -1,0 +1,5 @@
+<map id="RotorDeMapeo::imprimirEstado" name="RotorDeMapeo::imprimirEstado">
+<area shape="rect" id="Node000001" title="Imprime el estado actual del rotor para debug." alt="" coords="208,5,435,31"/>
+<area shape="rect" id="Node000002" href="$classTramaMap.html#abaa69dc4fcbacbb7a7e6f2d24fce238c" title="Procesa la trama MAP." alt="" coords="5,5,160,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,21,160,21,160,15,194,15"/>
+</map>

@@ -1,0 +1,192 @@
+\doxysection{Referencia de la clase Serial\+Reader}
+\hypertarget{classSerialReader}{}\label{classSerialReader}\index{SerialReader@{SerialReader}}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSerialReader_a182a5d78dad1bbb57fe7e86ae68fea82}{Serial\+Reader}} ()
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSerialReader_a3a5314ddbf65796603139fbec05c2cf6}{\texorpdfstring{$\sim$}{\string~}\+Serial\+Reader}} ()
+\begin{DoxyCompactList}\small\item\em Destructor -\/ cierra puerto/archivo. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSerialReader_a1389ba8a325b2d3f429b0fb7dd28190c}{abrir}} (const char \texorpdfstring{$\ast$}{*}path, int baud=9600)
+\begin{DoxyCompactList}\small\item\em Abre un puerto serial o archivo de simulación. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSerialReader_aa764c02e6c35c608d6c0e04ce3f8563c}{leer\+Linea}} (char \texorpdfstring{$\ast$}{*}out\+Buf, size\+\_\+t max\+Len)
+\begin{DoxyCompactList}\small\item\em Lee una línea del puerto/archivo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+FILE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classSerialReader_a0b7f8179d0bd2620022ab99ae427d346}{f}}
+\begin{DoxyCompactList}\small\item\em File pointer para lectura. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSerialReader_a23e32f36f9855bac21ffaef9f086403a}{is\+\_\+serial}}
+\begin{DoxyCompactList}\small\item\em Indica si es puerto serial real. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00405}{405}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{classSerialReader_a182a5d78dad1bbb57fe7e86ae68fea82}\label{classSerialReader_a182a5d78dad1bbb57fe7e86ae68fea82} 
+\index{SerialReader@{SerialReader}!SerialReader@{SerialReader}}
+\index{SerialReader@{SerialReader}!SerialReader@{SerialReader}}
+\doxysubsubsection{\texorpdfstring{SerialReader()}{SerialReader()}}
+{\footnotesize\ttfamily Serial\+Reader\+::\+Serial\+Reader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor por defecto. 
+
+
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00417}{417}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\Hypertarget{classSerialReader_a3a5314ddbf65796603139fbec05c2cf6}\label{classSerialReader_a3a5314ddbf65796603139fbec05c2cf6} 
+\index{SerialReader@{SerialReader}!````~SerialReader@{\texorpdfstring{$\sim$}{\string~}SerialReader}}
+\index{````~SerialReader@{\texorpdfstring{$\sim$}{\string~}SerialReader}!SerialReader@{SerialReader}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SerialReader()}{\string~SerialReader()}}
+{\footnotesize\ttfamily Serial\+Reader\+::\texorpdfstring{$\sim$}{\string~}\+Serial\+Reader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destructor -\/ cierra puerto/archivo. 
+
+
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00426}{426}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{main_8cpp_source_l00407}{f}}.
+
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{classSerialReader_a1389ba8a325b2d3f429b0fb7dd28190c}\label{classSerialReader_a1389ba8a325b2d3f429b0fb7dd28190c} 
+\index{SerialReader@{SerialReader}!abrir@{abrir}}
+\index{abrir@{abrir}!SerialReader@{SerialReader}}
+\doxysubsubsection{\texorpdfstring{abrir()}{abrir()}}
+{\footnotesize\ttfamily bool Serial\+Reader\+::abrir (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{path,  }\item[{int}]{baud = {\ttfamily 9600} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Abre un puerto serial o archivo de simulación. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em path} & Ruta del dispositivo (/dev/tty\+USB0) o archivo \\
+\hline
+{\em baud} & Baud rate para puerto serial (default\+: 9600) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true si se abrió correctamente
+\end{DoxyReturn}
+Intenta primero como puerto serial (Linux), luego como archivo 
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00442}{442}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{main_8cpp_source_l00407}{f}} y \mbox{\hyperlink{main_8cpp_source_l00408}{is\+\_\+serial}}.
+
+
+
+Referenciado por \mbox{\hyperlink{main_8cpp_source_l00614}{main()}}.
+
+Gráfico de llamadas a esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{classSerialReader_a1389ba8a325b2d3f429b0fb7dd28190c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classSerialReader_aa764c02e6c35c608d6c0e04ce3f8563c}\label{classSerialReader_aa764c02e6c35c608d6c0e04ce3f8563c} 
+\index{SerialReader@{SerialReader}!leerLinea@{leerLinea}}
+\index{leerLinea@{leerLinea}!SerialReader@{SerialReader}}
+\doxysubsubsection{\texorpdfstring{leerLinea()}{leerLinea()}}
+{\footnotesize\ttfamily bool Serial\+Reader\+::leer\+Linea (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{out\+Buf,  }\item[{size\+\_\+t}]{max\+Len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Lee una línea del puerto/archivo. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em out\+Buf} & Buffer de salida \\
+\hline
+{\em max\+Len} & Tamaño máximo del buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true si se leyó algo 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondición}
+out\+Buf contiene la línea sin \textbackslash{}r\textbackslash{}n 
+\end{DoxyPostcond}
+
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00492}{492}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{main_8cpp_source_l00407}{f}}.
+
+
+
+Referenciado por \mbox{\hyperlink{main_8cpp_source_l00614}{main()}}.
+
+Gráfico de llamadas a esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=287pt]{classSerialReader_aa764c02e6c35c608d6c0e04ce3f8563c_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Documentación de datos miembro}
+\Hypertarget{classSerialReader_a0b7f8179d0bd2620022ab99ae427d346}\label{classSerialReader_a0b7f8179d0bd2620022ab99ae427d346} 
+\index{SerialReader@{SerialReader}!f@{f}}
+\index{f@{f}!SerialReader@{SerialReader}}
+\doxysubsubsection{\texorpdfstring{f}{f}}
+{\footnotesize\ttfamily FILE\texorpdfstring{$\ast$}{*} Serial\+Reader\+::f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+File pointer para lectura. 
+
+
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00407}{407}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Referenciado por \mbox{\hyperlink{main_8cpp_source_l00442}{abrir()}}, \mbox{\hyperlink{main_8cpp_source_l00492}{leer\+Linea()}} y \mbox{\hyperlink{main_8cpp_source_l00426}{\texorpdfstring{$\sim$}{\string~}\+Serial\+Reader()}}.
+
+\Hypertarget{classSerialReader_a23e32f36f9855bac21ffaef9f086403a}\label{classSerialReader_a23e32f36f9855bac21ffaef9f086403a} 
+\index{SerialReader@{SerialReader}!is\_serial@{is\_serial}}
+\index{is\_serial@{is\_serial}!SerialReader@{SerialReader}}
+\doxysubsubsection{\texorpdfstring{is\_serial}{is\_serial}}
+{\footnotesize\ttfamily bool Serial\+Reader\+::is\+\_\+serial\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Indica si es puerto serial real. 
+
+
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00408}{408}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Referenciado por \mbox{\hyperlink{main_8cpp_source_l00442}{abrir()}}.
+
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{main_8cpp}{main.\+cpp}}\end{DoxyCompactItemize}

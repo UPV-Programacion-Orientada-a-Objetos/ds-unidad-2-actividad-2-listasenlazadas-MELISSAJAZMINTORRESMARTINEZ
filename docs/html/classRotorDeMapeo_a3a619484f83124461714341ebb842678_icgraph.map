@@ -1,0 +1,5 @@
+<map id="RotorDeMapeo::rotar" name="RotorDeMapeo::rotar">
+<area shape="rect" id="Node000001" title="Rota el rotor N posiciones." alt="" coords="208,5,367,31"/>
+<area shape="rect" id="Node000002" href="$classTramaMap.html#abaa69dc4fcbacbb7a7e6f2d24fce238c" title="Procesa la trama MAP." alt="" coords="5,5,160,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,21,161,21,161,15,194,15"/>
+</map>

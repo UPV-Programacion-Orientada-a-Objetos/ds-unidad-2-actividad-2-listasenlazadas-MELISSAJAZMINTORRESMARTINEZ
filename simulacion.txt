@@ -1,0 +1,12 @@
+L,H
+L,O
+L,L
+M,2
+L,A
+L,Space
+L,W
+M,-2
+L,O
+L,R
+L,L
+L,D

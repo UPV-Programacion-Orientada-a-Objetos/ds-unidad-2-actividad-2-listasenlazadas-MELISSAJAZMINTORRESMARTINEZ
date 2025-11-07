@@ -1,0 +1,193 @@
+\doxysection{Referencia del archivo main.\+cpp}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
+
+
+Decodificador de Protocolo Industrial PRT-\/7.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$cctype$>$}\newline
+{\ttfamily \#include $<$cerrno$>$}\newline
+Gráfico de dependencias incluidas en main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classTramaBase}{Trama\+Base}}
+\item 
+struct \mbox{\hyperlink{structNodoCarga}{Nodo\+Carga}}
+\begin{DoxyCompactList}\small\item\em Nodo para la lista doblemente enlazada de fragmentos decodificados. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structNodoRotor}{Nodo\+Rotor}}
+\begin{DoxyCompactList}\small\item\em Nodo para la lista circular del rotor de mapeo. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classListaDeCarga}{Lista\+De\+Carga}}
+\item 
+class \mbox{\hyperlink{classRotorDeMapeo}{Rotor\+De\+Mapeo}}
+\item 
+class \mbox{\hyperlink{classTramaLoad}{Trama\+Load}}
+\item 
+class \mbox{\hyperlink{classTramaMap}{Trama\+Map}}
+\item 
+class \mbox{\hyperlink{classSerialReader}{Serial\+Reader}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_a0864f825628874d6ffb73922e3138c0c}{trim}} (char \texorpdfstring{$\ast$}{*}s)
+\begin{DoxyCompactList}\small\item\em Elimina espacios en blanco al inicio y final de una cadena. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTramaBase}{Trama\+Base}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{main_8cpp_a5ef851a64a3d7f8b1f04c2ed988fff8c}{parse\+Linea}} (const char \texorpdfstring{$\ast$}{*}lineaC)
+\begin{DoxyCompactList}\small\item\em Parsea una línea de texto y crea la trama correspondiente. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Decodificador de Protocolo Industrial PRT-\/7. 
+
+\begin{DoxyAuthor}{Autor}
+\mbox{[}Tu Nombre\mbox{]} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Fecha}
+2025 
+\end{DoxyDate}
+\begin{DoxyVersion}{Versión}
+1.\+0
+\end{DoxyVersion}
+Este programa implementa un decodificador para el protocolo PRT-\/7, que recibe tramas de tipo LOAD y MAP desde un puerto serial o archivo de simulación. Utiliza una lista doblemente enlazada para almacenar fragmentos decodificados y una lista circular como rotor de mapeo (cifrado César dinámico).\hypertarget{main_8cpp_compile}{}\doxysubsection{\texorpdfstring{Compilación}{Compilación}}\label{main_8cpp_compile}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir\ build}
+\DoxyCodeLine{cd\ build}
+\DoxyCodeLine{cmake\ ..}
+\DoxyCodeLine{make}
+
+\end{DoxyCode}
+\hypertarget{main_8cpp_usage}{}\doxysubsection{\texorpdfstring{Uso}{Uso}}\label{main_8cpp_usage}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./prtdcd\ -\/-\/sim\ entrada.txt}
+\DoxyCodeLine{./prtdcd\ -\/-\/serial\ /dev/ttyUSB0}
+
+\end{DoxyCode}
+ 
+
+Definición en el archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00614}{614}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{main_8cpp_source_l00442}{Serial\+Reader\+::abrir()}}, \mbox{\hyperlink{main_8cpp_source_l00181}{Lista\+De\+Carga\+::imprimir\+Mensaje\+Final()}}, \mbox{\hyperlink{main_8cpp_source_l00492}{Serial\+Reader\+::leer\+Linea()}}, \mbox{\hyperlink{main_8cpp_source_l00537}{parse\+Linea()}} y \mbox{\hyperlink{classTramaBase_a7adf0eea6b0eb612f7eeabac637c50a9}{Trama\+Base\+::procesar()}}.
+
+Gráfico de llamadas de esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main_8cpp_a5ef851a64a3d7f8b1f04c2ed988fff8c}\label{main_8cpp_a5ef851a64a3d7f8b1f04c2ed988fff8c} 
+\index{main.cpp@{main.cpp}!parseLinea@{parseLinea}}
+\index{parseLinea@{parseLinea}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{parseLinea()}{parseLinea()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTramaBase}{Trama\+Base}} \texorpdfstring{$\ast$}{*} parse\+Linea (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{lineaC }\end{DoxyParamCaption})}
+
+
+
+Parsea una línea de texto y crea la trama correspondiente. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em lineaC} & Línea a parsear (formato\+: "{}\+L,\+X"{} o "{}\+M,\+N"{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Puntero a Trama\+Base\texorpdfstring{$\ast$}{*} (debe liberarse con delete) o nullptr si inválida
+\end{DoxyReturn}
+Formatos válidos\+:
+\begin{DoxyItemize}
+\item L,X \+: \doxylink{classTramaLoad}{Trama\+Load} con carácter X
+\item L,Space \+: \doxylink{classTramaLoad}{Trama\+Load} con espacio
+\item M,N \+: \doxylink{classTramaMap}{Trama\+Map} con desplazamiento N (puede ser negativo) 
+\end{DoxyItemize}
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00537}{537}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{main_8cpp_source_l00515}{trim()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{main_8cpp_source_l00614}{main()}}.
+
+Gráfico de llamadas de esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{main_8cpp_a5ef851a64a3d7f8b1f04c2ed988fff8c_cgraph}
+\end{center}
+\end{figure}
+Gráfico de llamadas a esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{main_8cpp_a5ef851a64a3d7f8b1f04c2ed988fff8c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main_8cpp_a0864f825628874d6ffb73922e3138c0c}\label{main_8cpp_a0864f825628874d6ffb73922e3138c0c} 
+\index{main.cpp@{main.cpp}!trim@{trim}}
+\index{trim@{trim}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{trim()}{trim()}}
+{\footnotesize\ttfamily void trim (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{s }\end{DoxyParamCaption})}
+
+
+
+Elimina espacios en blanco al inicio y final de una cadena. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em s} & Cadena a modificar (in-\/place) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondición}
+s contiene la cadena sin espacios al inicio/final 
+\end{DoxyPostcond}
+
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00515}{515}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Referenciado por \mbox{\hyperlink{main_8cpp_source_l00537}{parse\+Linea()}}.
+
+Gráfico de llamadas a esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{main_8cpp_a0864f825628874d6ffb73922e3138c0c_icgraph}
+\end{center}
+\end{figure}

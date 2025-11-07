@@ -1,0 +1,251 @@
+\chapter{README}
+\hypertarget{md_README}{}\label{md_README}\index{README@{README}}
+\href{https://classroom.github.com/a/zp6HS-Kj}{\texttt{ }} \href{https://classroom.github.com/open-in-codespaces?assignment_repo_id=21478928}{\texttt{ }} \hypertarget{md_README_autotoc_md0}{}\doxysection{\texorpdfstring{Caso de Estudio\+: Decodificador de Protocolo Industrial (\+PRT-\/7)}{Caso de Estudio: Decodificador de Protocolo Industrial (PRT-7)}}\label{md_README_autotoc_md0}
+\hypertarget{md_README_autotoc_md1}{}\doxysubsection{\texorpdfstring{Definición del Problema a Resolver (\+El Caso de Estudio)}{Definición del Problema a Resolver (El Caso de Estudio)}}\label{md_README_autotoc_md1}
+Ustedes han sido contratados como ingenieros de software senior en una firma de ciberseguridad industrial. Un competidor ha estado interceptando la telemetría de sus sensores (simulados por un dispositivo Arduino), pero no han podido descifrarla.
+
+Se ha descubierto que el Arduino no envía datos encriptados, sino que transmite un {\bfseries{protocolo de ensamblaje de mensajes ocultos}} llamado PRT-\/7. El protocolo no envía un mensaje, sino las {\itshape instrucciones} para construir el mensaje.
+
+El Arduino envía dos tipos de tramas por el puerto serial\+:
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Tramas de Carga (LOAD)\+:}} Contienen un fragmento de datos (un carácter).
+\item {\bfseries{Tramas de Mapeo (MAP)\+:}} Contienen instrucciones para reordenar los fragmentos de datos ya recibidos.
+\end{DoxyEnumerate}
+
+Su misión es construir un software en C++ que lea este flujo de tramas desde el puerto serial y utilice las estructuras de datos correctas para ensamblar el mensaje oculto.
+
+
+\begin{DoxyItemize}
+\item Las tramas {\bfseries{LOAD}} deben almacenarse en una {\bfseries{Lista Doblemente Enlazada}}, ya que el orden de llegada es crucial.
+\item Las tramas {\bfseries{MAP}} operan sobre una {\bfseries{Lista Circular}}, que actúa como un "{}disco de cifrado"{} (similar a una Rueda de César) que mapea un carácter a otro.
+\end{DoxyItemize}
+
+El desafío es que las tramas MAP modifican el estado de la Lista Circular {\itshape mientras} se procesan las tramas LOAD, haciendo que el significado de cada fragmento de dato cambie dinámicamente.
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md3}{}\doxysubsection{\texorpdfstring{Temas Relacionados y Necesarios}{Temas Relacionados y Necesarios}}\label{md_README_autotoc_md3}
+Para resolver este caso de estudio, los alumnos deberán dominar la integración de los siguientes conceptos\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Tema Principal   }&\cellcolor{\tableheadbgcolor}\textbf{ Concepto a Aplicar    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Tema Principal   }&\cellcolor{\tableheadbgcolor}\textbf{ Concepto a Aplicar    }\\\cline{1-2}
+\endhead
+{\bfseries{POO Avanzada (Herencia/\+Polimorfismo)}}   &{\bfseries{Clase Base Abstracta}} ({\ttfamily \doxylink{classTramaBase}{Trama\+Base}}) y {\bfseries{Clases Derivadas}} ({\ttfamily \doxylink{classTramaLoad}{Trama\+Load}}, {\ttfamily \doxylink{classTramaMap}{Trama\+Map}}).    \\\cline{1-2}
+{\bfseries{Listas Doblemente Enlazadas (Manual)}}   &Implementación de una {\ttfamily \doxylink{classListaDeCarga}{Lista\+De\+Carga}} para almacenar las tramas recibidas en orden ({\ttfamily Trama\+Base\texorpdfstring{$\ast$}{*}}).    \\\cline{1-2}
+{\bfseries{Listas Circulares (Manual)}}   &Implementación de un {\ttfamily \doxylink{classRotorDeMapeo}{Rotor\+De\+Mapeo}} (una Lista Circular Doblemente Enlazada) que contiene el alfabeto (A-\/Z) y puede rotar.    \\\cline{1-2}
+{\bfseries{Punteros y Gestión de Memoria}}   &Uso de {\ttfamily new}/{\ttfamily delete} para crear nodos y objetos Trama. Gestión de punteros {\ttfamily previo} y {\ttfamily siguiente}.    \\\cline{1-2}
+{\bfseries{Comunicación Serial (Hardware)}}   &Lectura de datos en tiempo real desde un puerto COM (simulado por el Arduino).    \\\cline{1-2}
+{\bfseries{Análisis de Protocolos}}   &Interpretación de cadenas de texto ({\ttfamily L,A} o {\ttfamily M,5}) para instanciar los objetos correctos.   \\\cline{1-2}
+\end{longtabu}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md5}{}\doxysubsection{\texorpdfstring{Definición y Detalles del Proceso a Desarrollar}{Definición y Detalles del Proceso a Desarrollar}}\label{md_README_autotoc_md5}
+\hypertarget{md_README_autotoc_md6}{}\doxysubsubsection{\texorpdfstring{A. Diseño de la Jerarquía de Clases (\+POO)}{A. Diseño de la Jerarquía de Clases (POO)}}\label{md_README_autotoc_md6}
+El sistema debe basarse en una interfaz común para todas las tramas recibidas.
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Clase Base Abstracta ({\ttfamily \doxylink{classTramaBase}{Trama\+Base}})\+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\begin{DoxyItemize}
+\item {\bfseries{Propósito\+:}} Define la interfaz para cualquier trama que llegue del puerto serial.
+\item {\bfseries{Método Virtual Puro\+:}} {\ttfamily virtual void procesar(\+Lista\+De\+Carga\texorpdfstring{$\ast$}{*} carga, Rotor\+De\+Mapeo\texorpdfstring{$\ast$}{*} rotor) = 0;}
+\item {\bfseries{Destructor\+:}} {\ttfamily virtual \texorpdfstring{$\sim$}{\string~}\+Trama\+Base() \{\}} (Destructor virtual OBLIGATORIO para la limpieza de memoria polimórfica).
+\end{DoxyItemize}}}
+\item {\bfseries{{\bfseries{Clases Concretas (Derivadas)\+:}}
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{classTramaLoad}{Trama\+Load} \+: public \doxylink{classTramaBase}{Trama\+Base}}\+: Representa una trama {\ttfamily L,X} (ej. {\ttfamily L,A}). Almacena el carácter {\ttfamily X}.
+\item {\ttfamily \doxylink{classTramaMap}{Trama\+Map} \+: public \doxylink{classTramaBase}{Trama\+Base}}\+: Representa una trama {\ttfamily M,N} (ej. {\ttfamily M,5} o {\ttfamily M,-\/3}). Almacena el entero {\ttfamily N}.
+\end{DoxyItemize}}}
+\end{DoxyEnumerate}
+
+{\bfseries{}}\hypertarget{md_README_autotoc_md7}{}\doxysubsubsection{\texorpdfstring{B. Estructuras de Datos "{}\+A Mano"{}}{B. Estructuras de Datos "A Mano"}}\label{md_README_autotoc_md7}
+{\bfseries{}}
+
+{\bfseries{
+\begin{DoxyEnumerate}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily \doxylink{classRotorDeMapeo}{Rotor\+De\+Mapeo}} (Lista Circular Doblemente Enlazada)\+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\begin{DoxyItemize}
+\item Contiene nodos con {\ttfamily char} (A-\/Z).
+\item Debe tener un puntero {\ttfamily cabeza} que indica la posición \textquotesingle{}cero\textquotesingle{} actual.
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Método\+: {\ttfamily rotar(int N)}\+: Mueve el puntero {\ttfamily cabeza} N posiciones (positivo o negativo) de forma circular.
+\item {\bfseries{Método\+:}} {\ttfamily get\+Mapeo(char in)}\+: Busca el carácter {\ttfamily in} en la lista, encuentra su posición relativa a {\ttfamily cabeza}, y devuelve el carácter que está en la posición \textquotesingle{}cero\textquotesingle{} (la {\ttfamily cabeza}) si {\ttfamily in} estuviera en esa posición (¡lógica compleja de mapeo!).
+\end{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily \doxylink{classListaDeCarga}{Lista\+De\+Carga}} (Lista Doblemente Enlazada)\+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\begin{DoxyItemize}
+\item Contiene nodos que almacenan {\ttfamily char} (los datos decodificados).
+\item Debe implementar {\ttfamily insertar\+Al\+Final(char dato)}.
+\item Debe implementar {\ttfamily imprimir\+Mensaje()}.
+\end{DoxyItemize}
+\end{DoxyEnumerate}}}
+
+{\bfseries{}}\hypertarget{md_README_autotoc_md8}{}\doxysubsubsection{\texorpdfstring{C. Proceso de Solución Detallado (\+La Lógica del Decodificador)}{C. Proceso de Solución Detallado (La Lógica del Decodificador)}}\label{md_README_autotoc_md8}
+{\bfseries{}}
+
+{\bfseries{El programa debe gestionar dos estructuras simultáneamente\+:}}
+
+{\bfseries{
+\begin{DoxyEnumerate}
+\item {\bfseries{Inicialización\+:}} Crear la {\ttfamily \doxylink{classListaDeCarga}{Lista\+De\+Carga}} (vacía) y el {\ttfamily \doxylink{classRotorDeMapeo}{Rotor\+De\+Mapeo}} (cargado con A-\/Z, {\ttfamily cabeza} apuntando a \textquotesingle{}A\textquotesingle{}).
+\item {\bfseries{Lectura Serial\+:}} El programa debe abrir el puerto COM donde está el Arduino. Leerá líneas de texto (ej. "{}\+L,\+G"{}, "{}\+M,-\/2"{}).
+\item {\bfseries{Bucle de Procesamiento (El Reto)\+:}}
+\begin{DoxyItemize}
+\item Para cada línea leída\+:
+\begin{DoxyItemize}
+\item {\bfseries{Parsear\+:}} Determinar si es \textquotesingle{}L\textquotesingle{} (Load) o \textquotesingle{}M\textquotesingle{} (Map).
+\item {\bfseries{Instanciar\+:}}
+\begin{DoxyItemize}
+\item Si es "{}\+L,\+G"{} -\/\texorpdfstring{$>$}{>} `Trama\+Base\texorpdfstring{$\ast$}{*} trama = new \doxylink{classTramaLoad}{Trama\+Load}(\textquotesingle{}G');{\ttfamily }
+\item {\ttfamily Si es "{}\+M,-\/2"{} -\/\textbackslash{}\texorpdfstring{$>$}{>}}Trama\+Base\texorpdfstring{$\ast$}{*} trama = new \doxylink{classTramaMap}{Trama\+Map}(-\/2);{\ttfamily }
+\end{DoxyItemize}
+\item {\ttfamily \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Ejecutar\+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Llamar a}trama-\/\texorpdfstring{$>$}{>}procesar(\&mi\+Lista\+De\+Carga, \&mi\+Rotor\+De\+Mapeo);{\ttfamily }
+\item {\ttfamily \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Limpiar\+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}delete trama;{\ttfamily }
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item {\ttfamily \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Lógica de}procesar(){\ttfamily \+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}Trama\+Map\+::procesar(..., Rotor\+De\+Mapeo\texorpdfstring{$\ast$}{*} rotor){\ttfamily \+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Simplemente llama a}rotor-\/\texorpdfstring{$>$}{>}rotar(\+N){\ttfamily . El disco de cifrado cambia de posición.}
+\item {\ttfamily \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}\doxylink{classTramaLoad_a1b1ac2a7297870d4f9c47e9d3375c370}{Trama\+Load\+::procesar(\+Lista\+De\+Carga\texorpdfstring{$\ast$}{*} carga, Rotor\+De\+Mapeo\texorpdfstring{$\ast$}{*} rotor)}`\+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\begin{DoxyItemize}
+\item Toma el carácter de la trama (ej. \textquotesingle{}G').
+\item Pregunta al rotor\+: `char decodificado = rotor-\/\texorpdfstring{$>$}{>}get\+Mapeo(\textquotesingle{}G');{\ttfamily (El rotor calcula el carácter mapeado basado en su rotación actual).}
+\item {\ttfamily Inserta el resultado\+:}carga-\/\texorpdfstring{$>$}{>}insertar\+Al\+Final(decodificado);{\ttfamily }
+\end{DoxyItemize}
+\end{DoxyItemize}}
+\item {\ttfamily {\ttfamily \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Resultado Final\+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Al terminar el flujo de datos, llamar a}mi\+Lista\+De\+Carga.\+imprimir\+Mensaje()\`{} revela el mensaje oculto.}
+\end{DoxyEnumerate}}}
+
+{\bfseries{{\ttfamily \DoxyHorRuler{0}
+}}}
+
+{\bfseries{{\ttfamily }}}\hypertarget{md_README_autotoc_md10}{}\doxysubsection{\texorpdfstring{Requerimientos Funcionales y No Funcionales}{Requerimientos Funcionales y No Funcionales}}\label{md_README_autotoc_md10}
+{\bfseries{{\ttfamily }}}
+
+{\bfseries{{\ttfamily }}}\hypertarget{md_README_autotoc_md11}{}\doxysubsubsection{\texorpdfstring{Requisitos Funcionales}{Requisitos Funcionales}}\label{md_README_autotoc_md11}
+{\bfseries{{\ttfamily }}}
+
+{\bfseries{{\ttfamily 
+\begin{DoxyEnumerate}
+\item {\bfseries{Comunicación Serial\+:}} El programa debe conectarse y leer con éxito las cadenas de texto enviadas por el Arduino.
+\item {\bfseries{POO Polimórfica\+:}} El sistema debe instanciar las clases derivadas correctas ({\ttfamily \doxylink{classTramaLoad}{Trama\+Load}}, {\ttfamily \doxylink{classTramaMap}{Trama\+Map}}) y almacenarlas en un puntero {\ttfamily Trama\+Base\texorpdfstring{$\ast$}{*}}.
+\item {\bfseries{Implementación de Lista Circular\+:}} El {\ttfamily \doxylink{classRotorDeMapeo}{Rotor\+De\+Mapeo}} debe implementarse como una lista circular doblemente enlazada y debe manejar la rotación (positiva y negativa) correctamente.
+\item {\bfseries{Implementación de Lista Doble\+:}} La {\ttfamily \doxylink{classListaDeCarga}{Lista\+De\+Carga}} debe almacenar los caracteres decodificados en el orden correcto.
+\item {\bfseries{Decodificación\+:}} El mensaje final debe ensamblarse correctamente basado en la lógica de mapeo y rotación.
+\item Uso de CMake\+: Se deberá generar una sistema redistribuible mediante el uso de CMake.
+\end{DoxyEnumerate}}}}
+
+{\bfseries{{\ttfamily }}}\hypertarget{md_README_autotoc_md12}{}\doxysubsubsection{\texorpdfstring{Requisitos No Funcionales}{Requisitos No Funcionales}}\label{md_README_autotoc_md12}
+{\bfseries{{\ttfamily }}}
+
+{\bfseries{{\ttfamily 
+\begin{DoxyEnumerate}
+\item {\bfseries{Exclusividad de Punteros\+:}} Prohibido el uso de la STL ({\ttfamily std\+::vector}, {\ttfamily std\+::list}, {\ttfamily std\+::string}). El manejo de listas y la lectura/parseo de cadenas debe ser manual (punteros {\ttfamily char\texorpdfstring{$\ast$}{*}}, {\ttfamily strtok}, etc.).
+\item {\bfseries{Gestión de Memoria\+:}} No debe haber fugas de memoria. Cada {\ttfamily new} debe tener su {\ttfamily delete} correspondiente, y el destructor de la clase base debe ser {\ttfamily virtual}.
+\item {\bfseries{Robustez\+:}} El programa debe manejar tramas mal formadas del puerto serial (aunque sea de forma básica).
+\end{DoxyEnumerate}}}}
+
+{\bfseries{{\ttfamily \DoxyHorRuler{0}
+}}}
+
+{\bfseries{{\ttfamily }}}\hypertarget{md_README_autotoc_md14}{}\doxysubsection{\texorpdfstring{Ejemplo de Entradas y Salidas del Problema en Consola}{Ejemplo de Entradas y Salidas del Problema en Consola}}\label{md_README_autotoc_md14}
+{\bfseries{{\ttfamily }}}
+
+{\bfseries{{\ttfamily }}}\hypertarget{md_README_autotoc_md15}{}\doxysubsubsection{\texorpdfstring{Simulación de Interacción (\+Lo que envía el Arduino)}{Simulación de Interacción (Lo que envía el Arduino)}}\label{md_README_autotoc_md15}
+{\bfseries{{\ttfamily }}}
+
+{\bfseries{{\ttfamily El Arduino debe estar programado para enviar lo siguiente, con un {\ttfamily delay(1000);} entre cada línea\+:}}}
+
+{\bfseries{{\ttfamily 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{L,H}
+\DoxyCodeLine{L,O}
+\DoxyCodeLine{L,L}
+\DoxyCodeLine{M,2}
+\DoxyCodeLine{L,A}
+\DoxyCodeLine{L,Space}
+\DoxyCodeLine{L,W}
+\DoxyCodeLine{M,-\/2}
+\DoxyCodeLine{L,O}
+\DoxyCodeLine{L,R}
+\DoxyCodeLine{L,L}
+\DoxyCodeLine{L,D}
+
+\end{DoxyCode}
+}}}
+
+{\bfseries{{\ttfamily }}}\hypertarget{md_README_autotoc_md16}{}\doxysubsubsection{\texorpdfstring{Salida Esperada del Sistema (\+En la Consola de C++)}{Salida Esperada del Sistema (En la Consola de C++)}}\label{md_README_autotoc_md16}
+{\bfseries{{\ttfamily }}}
+
+{\bfseries{{\ttfamily 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Iniciando\ Decodificador\ PRT-\/7.\ Conectando\ a\ puerto\ COM...}
+\DoxyCodeLine{Conexión\ establecida.\ Esperando\ tramas...}
+\DoxyCodeLine{}
+\DoxyCodeLine{Trama\ recibida:\ [L,H]\ -\/>\ Procesando...\ -\/>\ Fragmento\ 'H'\ decodificado\ como\ 'H'.\ Mensaje:\ [H]}
+\DoxyCodeLine{Trama\ recibida:\ [L,O]\ -\/>\ Procesando...\ -\/>\ Fragmento\ 'O'\ decodificado\ como\ 'O'.\ Mensaje:\ [H][O]}
+\DoxyCodeLine{Trama\ recibida:\ [L,L]\ -\/>\ Procesando...\ -\/>\ Fragmento\ 'L'\ decodificado\ como\ 'L'.\ Mensaje:\ [H][O][L]}
+\DoxyCodeLine{}
+\DoxyCodeLine{Trama\ recibida:\ [M,2]\ -\/>\ Procesando...\ -\/>\ ROTANDO\ ROTOR\ +2.\ (Ahora\ 'A'\ se\ mapea\ a\ 'C')}
+\DoxyCodeLine{}
+\DoxyCodeLine{Trama\ recibida:\ [L,A]\ -\/>\ Procesando...\ -\/>\ Fragmento\ 'A'\ decodificado\ como\ 'C'.\ Mensaje:\ [H][O][L][C]}
+\DoxyCodeLine{Trama\ recibida:\ [L,Space]\ -\/>\ Procesando...\ -\/>\ Fragmento\ '\ '\ decodificado\ como\ '\ '.\ Mensaje:\ [H][O][L][C][\ ]}
+\DoxyCodeLine{Trama\ recibida:\ [L,W]\ -\/>\ Procesando...\ -\/>\ Fragmento\ 'W'\ decodificado\ como\ 'Y'.\ Mensaje:\ [H][O][L][C][\ ][Y]}
+\DoxyCodeLine{}
+\DoxyCodeLine{Trama\ recibida:\ [M,-\/2]\ -\/>\ Procesando...\ -\/>\ ROTANDO\ ROTOR\ -\/2.\ (Ahora\ 'A'\ se\ mapea\ a\ 'A'\ de\ nuevo)}
+\DoxyCodeLine{}
+\DoxyCodeLine{Trama\ recibida:\ [L,O]\ -\/>\ Procesando...\ -\/>\ Fragmento\ 'O'\ decodificado\ como\ 'O'.\ Mensaje:\ [H][O][L][C][\ ][Y][O]}
+\DoxyCodeLine{Trama\ recibida:\ [L,R]\ -\/>\ Procesando...\ -\/>\ Fragmento\ 'R'\ decodificado\ como\ 'R'.\ Mensaje:\ [H][O][L][C][\ ][Y][O][R]}
+\DoxyCodeLine{Trama\ recibida:\ [L,L]\ -\/>\ Procesando...\ -\/>\ Fragmento\ 'L'\ decodificado\ como\ 'L'.\ Mensaje:\ [H][O][L][C][\ ][Y][O][R][L]}
+\DoxyCodeLine{Trama\ recibida:\ [L,D]\ -\/>\ Procesando...\ -\/>\ Fragmento\ 'D'\ decodificado\ como\ 'D'.\ Mensaje:\ [H][O][L][C][\ ][Y][O][R][L][D]}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/-\/-\/}
+\DoxyCodeLine{Flujo\ de\ datos\ terminado.}
+\DoxyCodeLine{MENSAJE\ OCULTO\ ENSAMBLADO:}
+\DoxyCodeLine{HOLCY\ YORLD}
+\DoxyCodeLine{-\/-\/-\/}
+\DoxyCodeLine{Liberando\ memoria...\ Sistema\ apagado.}
+
+\end{DoxyCode}
+}}}
+
+{\bfseries{{\ttfamily \DoxyHorRuler{0}
+}}}
+
+{\bfseries{{\ttfamily }}}\hypertarget{md_README_autotoc_md18}{}\doxysubsection{\texorpdfstring{Temas Adicionales de Investigación Necesarios}{Temas Adicionales de Investigación Necesarios}}\label{md_README_autotoc_md18}
+{\bfseries{{\ttfamily }}}
+
+{\bfseries{{\ttfamily Para llevar a cabo esta actividad, el alumno deberá investigar y dominar a fondo\+:}}}
+
+{\bfseries{{\ttfamily 
+\begin{DoxyEnumerate}
+\item {\bfseries{Programación Serial en C++ (El Reto Principal)\+:}} Cómo abrir, configurar (Baud Rate, Paridad, etc.) y leer desde un puerto COM (ej. {\ttfamily \textbackslash{}\textbackslash{}.\textbackslash{}COM3} en Windows o {\ttfamily /dev/tty\+USB0} en Linux) usando {\bfseries{solo librerías estándar}} (como {\ttfamily \texorpdfstring{$<$}{<}fstream\texorpdfstring{$>$}{>}} o APIs de Win32/\+POSIX si {\ttfamily \texorpdfstring{$<$}{<}fstream\texorpdfstring{$>$}{>}} no es suficiente).
+\item {\bfseries{Destructores Virtuales\+:}} Por qué son {\bfseries{absolutamente necesarios}} en la clase {\ttfamily \doxylink{classTramaBase}{Trama\+Base}} para evitar fugas de memoria masivas al hacer {\ttfamily delete trama;} sobre un puntero de la clase base.
+\item {\bfseries{Parseo de Cadenas (C-\/style)\+:}} Técnicas para dividir una cadena leída del serial (ej. "{}\+M,-\/2"{}) en sus componentes ({\ttfamily char\texorpdfstring{$\ast$}{*}}) usando funciones como {\ttfamily strtok()}, {\ttfamily sscanf()} o {\ttfamily atoi()}, ya que {\ttfamily std\+::string} y {\ttfamily stringstream} no están permitidas.
+\item {\bfseries{Lógica de Listas Circulares Dobles\+:}} La implementación de la rotación eficiente (que no implica mover datos, solo cambiar punteros {\ttfamily head}, {\ttfamily head-\/\texorpdfstring{$>$}{>}previo}, etc.) y la lógica de mapeo relativo.
+\end{DoxyEnumerate}}}}
+
+{\bfseries{{\ttfamily \DoxyHorRuler{0}
+}}}
+
+{\bfseries{{\ttfamily }}}\hypertarget{md_README_autotoc_md20}{}\doxysubsection{\texorpdfstring{Entregables}{Entregables}}\label{md_README_autotoc_md20}
+{\bfseries{{\ttfamily }}}
+
+{\bfseries{{\ttfamily 
+\begin{DoxyEnumerate}
+\item Código fuente debidamente documentado mediante Doxygen.
+\item Documentación generada mediante Doxygen.
+\item Reporte que deberá contener\+:
+\begin{DoxyItemize}
+\item Introducción
+\item Manual técnico (Diseño, desarrllo, componentes)
+\end{DoxyItemize}
+\item Pantallasos de la implementación generada. 
+\end{DoxyEnumerate}}}}

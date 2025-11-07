@@ -1,0 +1,239 @@
+\doxysection{Referencia de la clase Rotor\+De\+Mapeo}
+\hypertarget{classRotorDeMapeo}{}\label{classRotorDeMapeo}\index{RotorDeMapeo@{RotorDeMapeo}}
+
+
+Diagrama de colaboración de Rotor\+De\+Mapeo\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{classRotorDeMapeo__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRotorDeMapeo_aa4a3be7c3ce2021244e4977e4ad856c9}{Rotor\+De\+Mapeo}} ()
+\begin{DoxyCompactList}\small\item\em Constructor -\/ inicializa el rotor con A-\/Z. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRotorDeMapeo_adc5f4bfe5b8d66ba7c9bac38f4be4c5c}{\texorpdfstring{$\sim$}{\string~}\+Rotor\+De\+Mapeo}} ()
+\begin{DoxyCompactList}\small\item\em Destructor -\/ libera memoria del rotor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRotorDeMapeo_a3a619484f83124461714341ebb842678}{rotar}} (int N)
+\begin{DoxyCompactList}\small\item\em Rota el rotor N posiciones. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classRotorDeMapeo_a70d4ad4bcef4bd5cec9c8d2602859f5c}{get\+Mapeo}} (char in)
+\begin{DoxyCompactList}\small\item\em Obtiene el carácter mapeado según la rotación actual del rotor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRotorDeMapeo_ae751a8d79c9e18abaae39f2cf1b715ec}{imprimir\+Estado}} ()
+\begin{DoxyCompactList}\small\item\em Imprime el estado actual del rotor para debug. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structNodoRotor}{Nodo\+Rotor}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classRotorDeMapeo_af30703c2ef2fca6e8998879962e7dc61}{head}}
+\begin{DoxyCompactList}\small\item\em Puntero a la posición \textquotesingle{}cero\textquotesingle{} actual del rotor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRotorDeMapeo_af73a8a46493803cb43ce619b16660070}{size}}
+\begin{DoxyCompactList}\small\item\em Tamaño del rotor (26 letras) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00201}{201}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{classRotorDeMapeo_aa4a3be7c3ce2021244e4977e4ad856c9}\label{classRotorDeMapeo_aa4a3be7c3ce2021244e4977e4ad856c9} 
+\index{RotorDeMapeo@{RotorDeMapeo}!RotorDeMapeo@{RotorDeMapeo}}
+\index{RotorDeMapeo@{RotorDeMapeo}!RotorDeMapeo@{RotorDeMapeo}}
+\doxysubsubsection{\texorpdfstring{RotorDeMapeo()}{RotorDeMapeo()}}
+{\footnotesize\ttfamily Rotor\+De\+Mapeo\+::\+Rotor\+De\+Mapeo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor -\/ inicializa el rotor con A-\/Z. 
+
+\begin{DoxyPostcond}{Postcondición}
+Rotor circular creado con 26 nodos, head apuntando a \textquotesingle{}A\textquotesingle{} 
+\end{DoxyPostcond}
+
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00211}{211}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{main_8cpp_source_l00203}{head}}, \mbox{\hyperlink{main_8cpp_source_l00105}{Nodo\+Rotor\+::next}}, \mbox{\hyperlink{main_8cpp_source_l00104}{Nodo\+Rotor\+::prev}} y \mbox{\hyperlink{main_8cpp_source_l00204}{size}}.
+
+\Hypertarget{classRotorDeMapeo_adc5f4bfe5b8d66ba7c9bac38f4be4c5c}\label{classRotorDeMapeo_adc5f4bfe5b8d66ba7c9bac38f4be4c5c} 
+\index{RotorDeMapeo@{RotorDeMapeo}!````~RotorDeMapeo@{\texorpdfstring{$\sim$}{\string~}RotorDeMapeo}}
+\index{````~RotorDeMapeo@{\texorpdfstring{$\sim$}{\string~}RotorDeMapeo}!RotorDeMapeo@{RotorDeMapeo}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}RotorDeMapeo()}{\string~RotorDeMapeo()}}
+{\footnotesize\ttfamily Rotor\+De\+Mapeo\+::\texorpdfstring{$\sim$}{\string~}\+Rotor\+De\+Mapeo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destructor -\/ libera memoria del rotor. 
+
+Rompe la circularidad antes de eliminar para evitar loops infinitos 
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00237}{237}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{main_8cpp_source_l00203}{head}}, \mbox{\hyperlink{main_8cpp_source_l00105}{Nodo\+Rotor\+::next}} y \mbox{\hyperlink{main_8cpp_source_l00104}{Nodo\+Rotor\+::prev}}.
+
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{classRotorDeMapeo_a70d4ad4bcef4bd5cec9c8d2602859f5c}\label{classRotorDeMapeo_a70d4ad4bcef4bd5cec9c8d2602859f5c} 
+\index{RotorDeMapeo@{RotorDeMapeo}!getMapeo@{getMapeo}}
+\index{getMapeo@{getMapeo}!RotorDeMapeo@{RotorDeMapeo}}
+\doxysubsubsection{\texorpdfstring{getMapeo()}{getMapeo()}}
+{\footnotesize\ttfamily char Rotor\+De\+Mapeo\+::get\+Mapeo (\begin{DoxyParamCaption}\item[{char}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene el carácter mapeado según la rotación actual del rotor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em in} & Carácter de entrada a decodificar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Carácter decodificado según el mapeo actual
+\end{DoxyReturn}
+
+\begin{DoxyItemize}
+\item Los espacios se devuelven sin cambios
+\item Las minúsculas se convierten a mayúsculas
+\item El mapeo se realiza encontrando la posición relativa desde head 
+\end{DoxyItemize}
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00280}{280}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{main_8cpp_source_l00103}{Nodo\+Rotor\+::c}}, \mbox{\hyperlink{main_8cpp_source_l00203}{head}} y \mbox{\hyperlink{main_8cpp_source_l00105}{Nodo\+Rotor\+::next}}.
+
+
+
+Referenciado por \mbox{\hyperlink{main_8cpp_source_l00340}{Trama\+Load\+::procesar()}}.
+
+Gráfico de llamadas a esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRotorDeMapeo_a70d4ad4bcef4bd5cec9c8d2602859f5c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classRotorDeMapeo_ae751a8d79c9e18abaae39f2cf1b715ec}\label{classRotorDeMapeo_ae751a8d79c9e18abaae39f2cf1b715ec} 
+\index{RotorDeMapeo@{RotorDeMapeo}!imprimirEstado@{imprimirEstado}}
+\index{imprimirEstado@{imprimirEstado}!RotorDeMapeo@{RotorDeMapeo}}
+\doxysubsubsection{\texorpdfstring{imprimirEstado()}{imprimirEstado()}}
+{\footnotesize\ttfamily void Rotor\+De\+Mapeo\+::imprimir\+Estado (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Imprime el estado actual del rotor para debug. 
+
+Muestra las 26 letras desde la posición head 
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00303}{303}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{main_8cpp_source_l00103}{Nodo\+Rotor\+::c}}, \mbox{\hyperlink{main_8cpp_source_l00203}{head}}, \mbox{\hyperlink{main_8cpp_source_l00105}{Nodo\+Rotor\+::next}} y \mbox{\hyperlink{main_8cpp_source_l00204}{size}}.
+
+
+
+Referenciado por \mbox{\hyperlink{main_8cpp_source_l00385}{Trama\+Map\+::procesar()}}.
+
+Gráfico de llamadas a esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRotorDeMapeo_ae751a8d79c9e18abaae39f2cf1b715ec_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classRotorDeMapeo_a3a619484f83124461714341ebb842678}\label{classRotorDeMapeo_a3a619484f83124461714341ebb842678} 
+\index{RotorDeMapeo@{RotorDeMapeo}!rotar@{rotar}}
+\index{rotar@{rotar}!RotorDeMapeo@{RotorDeMapeo}}
+\doxysubsubsection{\texorpdfstring{rotar()}{rotar()}}
+{\footnotesize\ttfamily void Rotor\+De\+Mapeo\+::rotar (\begin{DoxyParamCaption}\item[{int}]{N }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Rota el rotor N posiciones. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em N} & Número de posiciones a rotar (+ derecha, -\/ izquierda) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondición}
+head se mueve N posiciones en la lista circular
+\end{DoxyPostcond}
+Maneja correctamente rotaciones positivas y negativas usando módulo 
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00255}{255}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{main_8cpp_source_l00203}{head}}, \mbox{\hyperlink{main_8cpp_source_l00105}{Nodo\+Rotor\+::next}} y \mbox{\hyperlink{main_8cpp_source_l00204}{size}}.
+
+
+
+Referenciado por \mbox{\hyperlink{main_8cpp_source_l00385}{Trama\+Map\+::procesar()}}.
+
+Gráfico de llamadas a esta función\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRotorDeMapeo_a3a619484f83124461714341ebb842678_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Documentación de datos miembro}
+\Hypertarget{classRotorDeMapeo_af30703c2ef2fca6e8998879962e7dc61}\label{classRotorDeMapeo_af30703c2ef2fca6e8998879962e7dc61} 
+\index{RotorDeMapeo@{RotorDeMapeo}!head@{head}}
+\index{head@{head}!RotorDeMapeo@{RotorDeMapeo}}
+\doxysubsubsection{\texorpdfstring{head}{head}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNodoRotor}{Nodo\+Rotor}}\texorpdfstring{$\ast$}{*} Rotor\+De\+Mapeo\+::head\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Puntero a la posición \textquotesingle{}cero\textquotesingle{} actual del rotor. 
+
+
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00203}{203}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Referenciado por \mbox{\hyperlink{main_8cpp_source_l00280}{get\+Mapeo()}}, \mbox{\hyperlink{main_8cpp_source_l00303}{imprimir\+Estado()}}, \mbox{\hyperlink{main_8cpp_source_l00255}{rotar()}}, \mbox{\hyperlink{main_8cpp_source_l00211}{Rotor\+De\+Mapeo()}} y \mbox{\hyperlink{main_8cpp_source_l00237}{\texorpdfstring{$\sim$}{\string~}\+Rotor\+De\+Mapeo()}}.
+
+\Hypertarget{classRotorDeMapeo_af73a8a46493803cb43ce619b16660070}\label{classRotorDeMapeo_af73a8a46493803cb43ce619b16660070} 
+\index{RotorDeMapeo@{RotorDeMapeo}!size@{size}}
+\index{size@{size}!RotorDeMapeo@{RotorDeMapeo}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily int Rotor\+De\+Mapeo\+::size\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tamaño del rotor (26 letras) 
+
+
+
+Definición en la línea \mbox{\hyperlink{main_8cpp_source_l00204}{204}} del archivo \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+Referenciado por \mbox{\hyperlink{main_8cpp_source_l00303}{imprimir\+Estado()}}, \mbox{\hyperlink{main_8cpp_source_l00255}{rotar()}} y \mbox{\hyperlink{main_8cpp_source_l00211}{Rotor\+De\+Mapeo()}}.
+
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{main_8cpp}{main.\+cpp}}\end{DoxyCompactItemize}

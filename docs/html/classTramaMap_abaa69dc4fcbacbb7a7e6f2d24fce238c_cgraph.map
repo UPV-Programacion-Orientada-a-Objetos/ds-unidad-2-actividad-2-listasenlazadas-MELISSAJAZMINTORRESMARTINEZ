@@ -1,0 +1,7 @@
+<map id="TramaMap::procesar" name="TramaMap::procesar">
+<area shape="rect" id="Node000001" title="Procesa la trama MAP." alt="" coords="5,31,160,56"/>
+<area shape="rect" id="Node000002" href="$classRotorDeMapeo.html#ae751a8d79c9e18abaae39f2cf1b715ec" title="Imprime el estado actual del rotor para debug." alt="" coords="208,5,435,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,32,194,29,195,34,161,38"/>
+<area shape="rect" id="Node000003" href="$classRotorDeMapeo.html#a3a619484f83124461714341ebb842678" title="Rota el rotor N posiciones." alt="" coords="242,55,401,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="161,48,228,55,228,61,160,54"/>
+</map>

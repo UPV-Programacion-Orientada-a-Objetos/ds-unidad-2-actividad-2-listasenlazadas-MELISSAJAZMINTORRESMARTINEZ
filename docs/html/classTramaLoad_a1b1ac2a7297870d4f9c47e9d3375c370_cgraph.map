@@ -1,0 +1,9 @@
+<map id="TramaLoad::procesar" name="TramaLoad::procesar">
+<area shape="rect" id="Node000001" title="Procesa la trama LOAD." alt="" coords="5,55,163,80"/>
+<area shape="rect" id="Node000002" href="$classRotorDeMapeo.html#a70d4ad4bcef4bd5cec9c8d2602859f5c" title="Obtiene el carácter mapeado según la rotación actual del rotor." alt="" coords="229,5,421,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,52,248,31,249,36,147,57"/>
+<area shape="rect" id="Node000003" href="$classListaDeCarga.html#a90f5187002875f9a4bc856db5d86ff35" title="Imprime el mensaje actual entre corchetes." alt="" coords="211,55,439,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="163,65,197,65,197,70,163,70"/>
+<area shape="rect" id="Node000004" href="$classListaDeCarga.html#a6c659099ea4a85ff3a8ae2de024dfdc0" title="Inserta un carácter al final de la lista." alt="" coords="235,105,415,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="139,77,228,99,226,104,138,83"/>
+</map>

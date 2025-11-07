@@ -1,0 +1,15 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,120,60,145"/>
+<area shape="rect" id="Node000002" href="$classSerialReader.html#a1389ba8a325b2d3f429b0fb7dd28190c" title="Abre un puerto serial o archivo de simulación." alt="" coords="151,5,293,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="39,118,65,79,84,59,107,41,136,28,139,33,109,46,88,62,69,83,43,121"/>
+<area shape="rect" id="Node000003" href="$classListaDeCarga.html#a03df95d5deeb99fbaddbadf3bf9c8934" title="Imprime el mensaje final completo sin corchetes." alt="" coords="108,55,336,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="59,121,107,105,134,97,135,102,109,110,61,126"/>
+<area shape="rect" id="Node000004" href="$classSerialReader.html#aa764c02e6c35c608d6c0e04ce3f8563c" title="Lee una línea del puerto/archivo." alt="" coords="135,120,309,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="60,130,122,130,122,135,60,135"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html#a5ef851a64a3d7f8b1f04c2ed988fff8c" title="Parsea una línea de texto y crea la trama correspondiente." alt="" coords="175,169,269,195"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="61,139,109,154,162,167,161,172,107,159,59,144"/>
+<area shape="rect" id="Node000007" href="$classTramaBase.html#a7adf0eea6b0eb612f7eeabac637c50a9" title="Procesa la trama y modifica las estructuras de datos." alt="" coords="143,219,301,244"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="45,144,72,175,109,204,131,213,128,218,107,208,68,178,41,148"/>
+<area shape="rect" id="Node000006" href="$main_8cpp.html#a0864f825628874d6ffb73922e3138c0c" title="Elimina espacios en blanco al inicio y final de una cadena." alt="" coords="384,169,433,195"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="269,179,370,179,370,185,269,185"/>
+</map>
